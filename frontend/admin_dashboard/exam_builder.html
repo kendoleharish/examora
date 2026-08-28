@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXAMORA | Exam Builder</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: 'rgb(var(--color-primary) / <alpha-value>)',
+                        'on-primary': 'rgb(var(--color-on-primary) / <alpha-value>)',
+                        'primary-container': 'rgb(var(--color-primary-container) / <alpha-value>)',
+                        'on-primary-container': 'rgb(var(--color-on-primary-container) / <alpha-value>)',
+                        secondary: 'rgb(var(--color-secondary) / <alpha-value>)',
+                        'on-secondary': 'rgb(var(--color-on-secondary) / <alpha-value>)',
+                        'secondary-container': 'rgb(var(--color-secondary-container) / <alpha-value>)',
+                        'on-secondary-container': 'rgb(var(--color-on-secondary-container) / <alpha-value>)',
+                        background: 'rgb(var(--color-background) / <alpha-value>)',
+                        'on-background': 'rgb(var(--color-on-background) / <alpha-value>)',
+                        surface: 'rgb(var(--color-surface) / <alpha-value>)',
+                        'on-surface': 'rgb(var(--color-on-surface) / <alpha-value>)',
+                        'on-surface-variant': 'rgb(var(--color-on-surface-variant) / <alpha-value>)',
+                        'surface-container-lowest': 'rgb(var(--color-surface-container-lowest) / <alpha-value>)',
+                        'surface-container-low': 'rgb(var(--color-surface-container-low) / <alpha-value>)',
+                        'surface-container': 'rgb(var(--color-surface-container) / <alpha-value>)',
+                        'surface-container-high': 'rgb(var(--color-surface-container-high) / <alpha-value>)',
+                        'surface-container-highest': 'rgb(var(--color-surface-container-highest) / <alpha-value>)',
+                        outline: 'rgb(var(--color-outline) / <alpha-value>)',
+                        'outline-variant': 'rgb(var(--color-outline-variant) / <alpha-value>)',
+                        error: 'rgb(var(--color-error) / <alpha-value>)',
+                        'on-error': 'rgb(var(--color-on-error) / <alpha-value>)',
+                        'error-container': 'rgb(var(--color-error-container) / <alpha-value>)',
+                        'on-error-container': 'rgb(var(--color-on-error-container) / <alpha-value>)',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="../shared/theme.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+    <!-- Header -->
+    <header class="h-16 border-b border-outline-variant/20 bg-surface/80 backdrop-blur-md fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6">
+        <div class="flex items-center gap-4">
+            <button onclick="window.history.back()" class="p-2 -ml-2 rounded-xl text-on-surface hover:bg-surface-container">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </button>
+            <div class="h-5 w-px bg-outline-variant/30"></div>
+            <div>
+                <h1 class="text-sm font-bold text-on-surface" id="headerTitle">Exam Builder</h1>
+                <p class="text-[10px] text-on-surface-variant uppercase tracking-wider" id="headerSubtitle">Loading...</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-3">
+            <span id="saveStatus" class="text-xs font-semibold text-on-surface-variant mr-2"></span>
+            <button onclick="saveExamBuilder()" class="px-4 py-2 bg-primary text-on-primary rounded-xl text-xs font-bold shadow-sm hover:bg-primary/90 flex items-center gap-2">
+                <span class="material-symbols-outlined text-[18px]">save</span>
+                Save Draft
+            </button>
+        </div>
+    </header>
+
+    <main class="pt-24 pb-16 px-6 max-w-7xl mx-auto flex gap-8">
+        
+        <!-- Sidebar Navigation (Steps) -->
+        <aside class="w-64 flex-shrink-0 hidden lg:block">
+            <div class="sticky top-24 bg-surface-container-lowest rounded-2xl border border-outline-variant/20 p-4 shadow-sm">
+                <h3 class="text-xs font-bold uppercase tracking-wider text-on-surface-variant mb-4 px-2">Builder Steps</h3>
+                <nav class="space-y-1" id="builderNav">
+                    <button class="w-full text-left px-3 py-2.5 rounded-xl text-sm font-semibold text-primary bg-primary/10 flex items-center gap-3" data-step="sections">
+                        <span class="material-symbols-outlined text-xl">view_agenda</span>
+                        Sections
+                    </button>
+                    <!-- More steps can be added -->
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Workspace -->
+        <div class="flex-1 space-y-6" id="workspaceContainer">
+            
+            <div class="flex justify-between items-end mb-6">
+                <div>
+                    <h2 class="text-2xl font-extrabold text-on-surface">Sections & Questions</h2>
+                    <p class="text-sm text-on-surface-variant mt-1">Organize your examination into sections and assign questions from the bank.</p>
+                </div>
+                <button onclick="addSection()" class="px-4 py-2 bg-secondary-container text-on-secondary-container rounded-xl text-xs font-bold hover:bg-secondary-container/80 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[18px]">add</span>
+                    Add Section
+                </button>
+            </div>
+
+            <div id="sectionsContainer" class="space-y-6">
+                <div class="p-8 text-center text-on-surface-variant text-sm">Loading exam data...</div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Question Picker Modal -->
+    <div id="questionPickerModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-on-surface/40 backdrop-blur-sm p-4">
+        <div class="bg-surface-container-lowest w-full max-w-4xl rounded-2xl shadow-2xl border border-outline-variant/30 flex flex-col max-h-[90vh]">
+            <div class="p-5 border-b border-outline-variant/20 flex items-center justify-between">
+                <div>
+                    <h3 class="text-base font-bold text-on-surface">Select Questions</h3>
+                    <p class="text-xs text-on-surface-variant">Add questions to <span id="pickerSectionName" class="font-bold text-primary"></span></p>
+                </div>
+                <div class="flex items-center gap-3">
+                    <button type="button" onclick="openBuilderQuestionCreator()" class="px-3 py-1.5 bg-primary/10 text-primary hover:bg-primary/20 rounded-xl text-xs font-bold transition-all flex items-center gap-1 cursor-pointer">
+                        <span class="material-symbols-outlined text-sm">add</span>
+                        <span>Create New Question</span>
+                    </button>
+                    <button onclick="closeQuestionPicker()" class="p-1 rounded-lg text-on-surface-variant hover:bg-surface-container">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="p-4 border-b border-outline-variant/10 bg-surface-container-low flex gap-4">
+                <div class="relative flex-1">
+                    <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg">search</span>
+                    <input type="text" id="pickerSearch" oninput="renderPickerQuestions()" placeholder="Search questions..." class="w-full bg-surface-container-lowest text-xs rounded-xl py-2 pl-9 pr-3 border border-outline-variant/30 outline-none"/>
+                </div>
+                <select id="pickerCategory" onchange="renderPickerQuestions()" class="bg-surface-container-lowest text-xs rounded-xl py-2 px-3 border border-outline-variant/30 outline-none">
+                    <option value="ALL">All Categories</option>
+                    <option value="Computer Science & IT">Computer Science & IT</option>
+                    <option value="Mathematics">Mathematics</option>
+                </select>
+                <select id="pickerType" onchange="renderPickerQuestions()" class="bg-surface-container-lowest text-xs rounded-xl py-2 px-3 border border-outline-variant/30 outline-none">
+                    <option value="ALL">All Types</option>
+                    <option value="MCQ">MCQ</option>
+                    <option value="DESCRIPTIVE">Descriptive</option>
+                    <option value="NUMERICAL">Numerical</option>
+                    <option value="MULTIPLE_SELECT">Multiple Select</option>
+                </select>
+            </div>
+
+            <div class="flex-1 overflow-y-auto p-4 space-y-3" id="pickerQuestionsContainer">
+                <!-- Questions injected here -->
+            </div>
+            
+            <div class="p-4 border-t border-outline-variant/20 flex justify-between items-center bg-surface-container-lowest">
+                <span class="text-xs font-bold text-on-surface-variant"><span id="pickerSelectedCount">0</span> selected</span>
+                <div class="flex gap-3">
+                    <button onclick="closeQuestionPicker()" class="px-4 py-2 text-xs font-bold text-on-surface-variant hover:bg-surface-container rounded-xl">Cancel</button>
+                    <button onclick="confirmQuestionSelection()" class="px-5 py-2 text-xs font-bold bg-primary text-on-primary rounded-xl hover:bg-primary/90">Add to Section</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-[100] px-6 py-3 rounded-full text-sm font-semibold shadow-xl transition-all duration-300 opacity-0 pointer-events-none transform translate-y-4"></div>
+
+    <!-- Question Add/Edit Modal (Injected for Builder) -->
+    <div id="questionModal" class="hidden fixed inset-0 z-[60] flex items-center justify-center bg-on-surface/40 backdrop-blur-sm p-4">
+        <div class="bg-surface-container-lowest w-full max-w-2xl rounded-2xl p-6 shadow-2xl border border-outline-variant/30 max-h-[90vh] overflow-y-auto flex flex-col">
+            <div class="flex justify-between items-center mb-6 pb-4 border-b border-outline-variant/20">
+                <div>
+                    <h3 class="text-lg font-bold text-on-surface" id="questionModalTitle">Add New Question</h3>
+                    <p class="text-xs text-on-surface-variant">Create and add to bank</p>
+                </div>
+                <button onclick="closeQuestionModal()" class="p-1 rounded-lg text-on-surface-variant hover:bg-surface-container cursor-pointer">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <form id="questionForm" onsubmit="handleSaveQuestion(event)" class="space-y-4 flex-1">
+                <input type="hidden" id="edit_qid" value=""/>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-1" for="q_type">Question Type</label>
+                        <select id="q_type" onchange="renderDynamicQuestionFields()" required class="w-full bg-surface-container-low text-sm rounded-xl py-2.5 px-3 border border-outline-variant/40 outline-none focus:border-primary">
+                            <option value="MCQ">Multiple Choice (Single Correct)</option>
+                            <option value="MULTIPLE_SELECT">Multiple Select (Multiple Correct)</option>
+                            <option value="TRUE_FALSE">True / False</option>
+                            <option value="FILL_BLANK">Fill in the Blanks</option>
+                            <option value="SHORT_ANSWER">Short Answer</option>
+                            <option value="DESCRIPTIVE">Descriptive / Essay</option>
+                            <option value="NUMERICAL">Numerical Value</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-1" for="q_category">Subject / Category</label>
+                        <input type="text" id="q_category" list="categoryOptions" placeholder="e.g. Science" required class="w-full bg-surface-container-low text-sm rounded-xl py-2.5 px-3 border border-outline-variant/40 outline-none focus:border-primary"/>
+                        <datalist id="categoryOptions">
+                            <option value="Computer Science & IT">
+                            <option value="Mathematics">
+                            <option value="Programming">
+                        </datalist>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-1" for="q_text">Question Statement</label>
+                    <textarea id="q_text" rows="3" required class="w-full bg-surface-container-low text-sm rounded-xl py-2.5 px-3.5 border border-outline-variant/40 outline-none focus:border-primary"></textarea>
+                </div>
+                
+                <div id="dynamicQuestionFields" class="space-y-4">
+                    <!-- Injected via question_creator.js -->
+                </div>
+
+                <div class="grid grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-1" for="q_marks">Marks</label>
+                        <input type="number" id="q_marks" min="1" max="100" value="1" required class="w-full bg-surface-container-low text-sm rounded-xl py-2.5 px-3 border border-outline-variant/40 outline-none focus:border-primary"/>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-1" for="q_negative_marks">Negative Marks</label>
+                        <input type="number" id="q_negative_marks" step="0.1" min="0" max="100" value="0" class="w-full bg-surface-container-low text-sm rounded-xl py-2.5 px-3 border border-outline-variant/40 outline-none focus:border-primary"/>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-1" for="q_difficulty">Difficulty</label>
+                        <select id="q_difficulty" class="w-full bg-surface-container-low text-sm rounded-xl py-2.5 px-3 border border-outline-variant/40 outline-none focus:border-primary">
+                            <option value="easy">Easy</option>
+                            <option value="medium" selected>Medium</option>
+                            <option value="hard">Hard</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="flex justify-end gap-3 pt-4 border-t border-outline-variant/20 mt-6">
+                    <button type="button" onclick="closeQuestionModal()" class="px-4 py-2 text-xs font-bold text-on-surface-variant hover:bg-surface-container rounded-xl">Cancel</button>
+                    <button type="submit" class="px-5 py-2 text-xs font-bold bg-primary text-on-primary rounded-xl hover:bg-primary-container cursor-pointer">Save Question</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="../shared/auth.js"></script>
+    <script src="question_creator.js"></script>
+    <script src="exam_builder.js"></script>
+</body>
+</html>

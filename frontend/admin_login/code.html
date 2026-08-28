@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>EXAMORA | Administrator Portal Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0050cb",
+                        "primary-container": "#0066ff",
+                        "on-primary": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-container": "#eceef0",
+                        "surface-container-high": "#e6e8ea",
+                        "on-surface": "#191c1e",
+                        "on-surface-variant": "#424656",
+                        "outline": "#727687",
+                        "outline-variant": "#c2c6d8",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "secondary": "#505f76",
+                        "secondary-container": "#d0e1fb"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "body-md": ["Inter", "sans-serif"],
+                        "headline-sm": ["Inter", "sans-serif"],
+                        "headline-md": ["Inter", "sans-serif"],
+                        "display-lg": ["Inter", "sans-serif"],
+                        "label-md": ["Geist", "Inter", "sans-serif"]
+                    }
+                }
+            }
+        };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+    <style>
+        @layer base {
+            html, body { margin: 0; padding: 0; }
+            body { overscroll-behavior: none; }
+        }
+        ::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface flex flex-col items-center justify-center min-h-screen p-4 sm:p-8">
+
+    <div class="relative w-full max-w-md bg-surface-container-lowest rounded-2xl shadow-xl border border-outline-variant/30 p-8 my-8">
+        
+        <!-- Header -->
+        <div class="flex items-center justify-between mb-6">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white shadow-sm flex-shrink-0">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/>
+                        <path d="m9 12 2 2 4-4"/>
+                    </svg>
+                </div>
+                <span class="text-xl font-bold text-primary tracking-tight">EXAMORA</span>
+            </div>
+            <span class="px-2.5 py-1 bg-primary/10 text-primary text-xs font-bold rounded-lg uppercase tracking-wider">Admin</span>
+        </div>
+
+        <h1 class="text-2xl font-bold text-on-surface tracking-tight mb-1">Administrator Sign In</h1>
+        <p class="text-sm text-on-surface-variant mb-6">Authorized institution faculty and administrative access only.</p>
+
+        <!-- Feedback Alert Box -->
+        <div id="alertBox" class="hidden mb-6 p-4 rounded-xl text-sm font-medium flex items-start gap-3 bg-error-container text-on-error-container border border-error/20">
+            <span class="material-symbols-outlined text-lg text-error mt-0.5">error</span>
+            <span id="alertMsg" class="flex-1"></span>
+        </div>
+
+        <!-- Login Form -->
+        <form id="adminLoginForm" class="space-y-4" onsubmit="handleAdminLogin(event)">
+            <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-1" for="username">Admin Username</label>
+                <div class="relative flex items-center">
+                    <span class="material-symbols-outlined absolute left-3 text-on-surface-variant/50 text-lg">admin_panel_settings</span>
+                    <input class="w-full bg-surface-container-low text-on-surface text-sm rounded-xl py-3 pl-10 pr-4 outline-none border border-outline-variant/50 focus:border-primary focus:bg-surface-container-lowest transition-all" id="username" name="username" placeholder="admin" required type="text"/>
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-1" for="password">Password</label>
+                <div class="relative flex items-center">
+                    <span class="material-symbols-outlined absolute left-3 text-on-surface-variant/50 text-lg">lock</span>
+                    <input class="w-full bg-surface-container-low text-on-surface text-sm rounded-xl py-3 pl-10 pr-10 outline-none border border-outline-variant/50 focus:border-primary focus:bg-surface-container-lowest transition-all" id="password" name="password" placeholder="••••••••" required type="password"/>
+                    <button type="button" id="togglePassword" aria-label="Toggle password visibility" class="absolute right-3 text-on-surface-variant/50 hover:text-on-surface cursor-pointer">
+                        <span class="material-symbols-outlined text-lg" id="eyeIcon">visibility</span>
+                    </button>
+                </div>
+            </div>
+
+            <button id="submitBtn" type="submit" class="w-full bg-primary text-on-primary font-semibold text-sm py-3.5 rounded-xl flex items-center justify-center gap-2 hover:bg-primary-container active:scale-[0.98] transition-all shadow-md shadow-primary/20 mt-6 cursor-pointer">
+                <span>ENTER PORTAL</span>
+                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+            </button>
+        </form>
+
+        <!-- Footer Links -->
+        <div class="mt-6 pt-6 border-t border-outline-variant/30 text-center">
+            <p class="text-xs text-on-surface-variant">
+                Looking for student examinations? 
+                <a href="../student_login/code.html" class="text-primary font-bold hover:underline">Student Login</a>
+            </p>
+        </div>
+
+    </div>
+
+    <script src="../shared/auth.js"></script>
+    <script>
+        // Password toggle
+        const passwordInput = document.getElementById('password');
+        const toggleBtn = document.getElementById('togglePassword');
+        const eyeIcon = document.getElementById('eyeIcon');
+        toggleBtn.addEventListener('click', () => {
+            const isPass = passwordInput.type === 'password';
+            passwordInput.type = isPass ? 'text' : 'password';
+            eyeIcon.textContent = isPass ? 'visibility_off' : 'visibility';
+        });
+
+        // Check if admin is already logged in
+        (async () => {
+            try {
+                const res = await fetchApi('/api/admin/session');
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data.success && data.admin) {
+                        window.location.href = '../admin_dashboard/code.html';
+                    }
+                }
+            } catch (e) { }
+        })();
+
+        async function handleAdminLogin(e) {
+            e.preventDefault();
+            const alertBox = document.getElementById('alertBox');
+            const alertMsg = document.getElementById('alertMsg');
+            const submitBtn = document.getElementById('submitBtn');
+
+            alertBox.classList.add('hidden');
+
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="material-symbols-outlined animate-spin text-lg">progress_activity</span> Authenticating...';
+
+            try {
+                const res = await fetchApi('/api/admin/login', {
+                    method: 'POST',
+                    body: JSON.stringify({ username, password })
+                });
+
+                const data = await res.json();
+
+                if (res.ok && data.success) {
+                    submitBtn.innerHTML = '<span class="material-symbols-outlined text-lg">check_circle</span> Success';
+                    submitBtn.classList.remove('bg-primary');
+                    submitBtn.classList.add('bg-green-600');
+                    if (data.admin) {
+                        localStorage.setItem('admin_user', JSON.stringify(data.admin));
+                    }
+                    setTimeout(() => {
+                        window.location.href = '../admin_dashboard/code.html';
+                    }, 600);
+                } else {
+                    alertMsg.textContent = data.message || 'Invalid administrator credentials.';
+                    alertBox.classList.remove('hidden');
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<span>ENTER PORTAL</span><span class="material-symbols-outlined text-lg">arrow_forward</span>';
+                }
+            } catch (err) {
+                alertMsg.textContent = 'Server connection failed. Ensure backend is running.';
+                alertBox.classList.remove('hidden');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span>ENTER PORTAL</span><span class="material-symbols-outlined text-lg">arrow_forward</span>';
+            }
+        }
+    </script>
+</body>
+</html>

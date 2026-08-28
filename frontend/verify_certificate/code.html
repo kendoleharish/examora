@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>EXAMORA | Verify Certificate</title>
+    <meta name="description" content="Verify the authenticity of an EXAMORA examination certificate using its unique certificate ID."/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0050cb",
+                        "on-primary": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-container": "#eceef0",
+                        "on-surface": "#191c1e",
+                        "on-surface-variant": "#424656",
+                        "outline": "#727687",
+                        "outline-variant": "#c2c6d8",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "success": "#16a34a",
+                        "success-container": "#dcfce7"
+                    },
+                    fontFamily: { "body": ["Inter", "sans-serif"] }
+                }
+            }
+        };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+</head>
+<body class="bg-surface font-body text-on-surface min-h-screen flex flex-col items-center justify-center p-4">
+
+<div class="w-full max-w-lg">
+    <!-- Header -->
+    <div class="text-center mb-8">
+        <div class="w-12 h-12 rounded-xl bg-primary flex items-center justify-center text-white shadow-md mx-auto mb-4">
+            <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/>
+                <path d="m9 12 2 2 4-4"/>
+            </svg>
+        </div>
+        <h1 class="text-2xl font-black tracking-tight text-on-surface">Certificate Verification</h1>
+        <p class="text-sm text-on-surface-variant mt-2">Enter a certificate ID to verify its authenticity.</p>
+    </div>
+
+    <!-- Search Form -->
+    <div class="bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/30 p-6 mb-6">
+        <div class="flex gap-3">
+            <input type="text" id="cert-input" placeholder="e.g. EXM-2026-123456"
+                   class="flex-1 bg-surface-container-low border border-outline-variant/40 rounded-xl px-4 py-3 text-sm font-mono text-on-surface focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                   onkeydown="if(event.key==='Enter') verifyCertificate()"/>
+            <button onclick="verifyCertificate()" id="verify-btn"
+                    class="px-6 py-3 bg-primary text-on-primary rounded-xl font-bold text-sm hover:bg-primary/90 transition-all shadow-md shadow-primary/20 flex items-center gap-2 cursor-pointer">
+                <span class="material-symbols-outlined text-lg">search</span>
+                Verify
+            </button>
+        </div>
+    </div>
+
+    <!-- Result Area -->
+    <div id="result-area" class="hidden">
+        <!-- Valid Certificate -->
+        <div id="valid-result" class="hidden bg-surface-container-lowest rounded-2xl shadow-sm border border-success/30 overflow-hidden">
+            <div class="bg-success-container/50 p-4 flex items-center gap-3 border-b border-success/20">
+                <span class="material-symbols-outlined text-success text-2xl">verified</span>
+                <div>
+                    <p class="text-sm font-bold text-success">Valid Certificate</p>
+                    <p class="text-[11px] text-success/80">This certificate has been verified as authentic.</p>
+                </div>
+            </div>
+            <div class="p-6 space-y-4 text-sm">
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <span class="text-[10px] uppercase font-bold tracking-wider text-on-surface-variant block">Certificate ID</span>
+                        <strong id="v-cert-id" class="font-mono text-primary">—</strong>
+                    </div>
+                    <div>
+                        <span class="text-[10px] uppercase font-bold tracking-wider text-on-surface-variant block">Institution</span>
+                        <strong id="v-inst">—</strong>
+                    </div>
+                    <div>
+                        <span class="text-[10px] uppercase font-bold tracking-wider text-on-surface-variant block">Student Name</span>
+                        <strong id="v-student">—</strong>
+                    </div>
+                    <div>
+                        <span class="text-[10px] uppercase font-bold tracking-wider text-on-surface-variant block">Examination</span>
+                        <strong id="v-exam">—</strong>
+                    </div>
+                    <div>
+                        <span class="text-[10px] uppercase font-bold tracking-wider text-on-surface-variant block">Grade</span>
+                        <strong id="v-grade" class="text-primary text-lg">—</strong>
+                    </div>
+                    <div>
+                        <span class="text-[10px] uppercase font-bold tracking-wider text-on-surface-variant block">Percentage</span>
+                        <strong id="v-pct">—</strong>
+                    </div>
+                    <div>
+                        <span class="text-[10px] uppercase font-bold tracking-wider text-on-surface-variant block">Exam Date</span>
+                        <strong id="v-date">—</strong>
+                    </div>
+                    <div>
+                        <span class="text-[10px] uppercase font-bold tracking-wider text-on-surface-variant block">Result</span>
+                        <strong id="v-status">—</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Invalid Certificate -->
+        <div id="invalid-result" class="hidden bg-surface-container-lowest rounded-2xl shadow-sm border border-error/30 overflow-hidden">
+            <div class="bg-error-container/50 p-4 flex items-center gap-3">
+                <span class="material-symbols-outlined text-error text-2xl">gpp_bad</span>
+                <div>
+                    <p class="text-sm font-bold text-error">Certificate Not Found</p>
+                    <p class="text-[11px] text-on-error-container/80">No certificate was found with the provided ID. Please double-check the certificate ID and try again.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="text-center mt-8">
+        <a href="../examora/code.html" class="text-xs text-on-surface-variant hover:text-primary transition-colors font-medium">
+            Powered by EXAMORA
+        </a>
+    </div>
+</div>
+
+<script>
+    const API_BASE = 'http://127.0.0.1:5000';
+
+    // Pre-fill from URL query param
+    const urlCid = new URLSearchParams(window.location.search).get('cid');
+    if (urlCid) {
+        document.getElementById('cert-input').value = urlCid;
+        setTimeout(() => verifyCertificate(), 300);
+    }
+
+    async function verifyCertificate() {
+        const cid = document.getElementById('cert-input').value.trim();
+        if (!cid) return;
+
+        const btn = document.getElementById('verify-btn');
+        btn.disabled = true;
+        btn.innerHTML = '<span class="material-symbols-outlined text-lg animate-spin">refresh</span> Verifying...';
+
+        try {
+            const resp = await fetch(`${API_BASE}/api/public/verify-certificate?cid=${encodeURIComponent(cid)}`);
+            const data = await resp.json();
+
+            const resultArea = document.getElementById('result-area');
+            const validDiv = document.getElementById('valid-result');
+            const invalidDiv = document.getElementById('invalid-result');
+
+            resultArea.classList.remove('hidden');
+
+            if (data.success && data.valid && data.certificate) {
+                const c = data.certificate;
+                validDiv.classList.remove('hidden');
+                invalidDiv.classList.add('hidden');
+
+                document.getElementById('v-cert-id').textContent = c.certificate_id;
+                document.getElementById('v-inst').textContent = c.institution_name || '—';
+                document.getElementById('v-student').textContent = c.student_name || '—';
+                document.getElementById('v-exam').textContent = c.exam_title || '—';
+                document.getElementById('v-grade').textContent = c.grade || '—';
+                document.getElementById('v-pct').textContent = c.percentage != null ? `${parseFloat(c.percentage).toFixed(1)}%` : '—';
+                document.getElementById('v-date').textContent = c.exam_date ? new Date(c.exam_date).toLocaleDateString() : '—';
+
+                const statusEl = document.getElementById('v-status');
+                statusEl.textContent = c.status || '—';
+                statusEl.className = c.status === 'PASSED' ? 'text-success font-bold' : 'text-error font-bold';
+            } else {
+                validDiv.classList.add('hidden');
+                invalidDiv.classList.remove('hidden');
+            }
+        } catch (e) {
+            console.error(e);
+        }
+
+        btn.disabled = false;
+        btn.innerHTML = '<span class="material-symbols-outlined text-lg">search</span> Verify';
+    }
+</script>
+</body>
+</html>

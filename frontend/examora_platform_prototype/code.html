@@ -1,0 +1,335 @@
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}.nav-link:hover .material-symbols-outlined{transform:scale(1.1);transition:transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);}.search-input{transition:width 0.3s cubic-bezier(0.4, 0, 0.2, 1);}.bell-icon:hover{animation:shake 0.5s ease-in-out;}@keyframes shake{0%,100%{transform:rotate(0deg);}25%{transform:rotate(15deg);}75%{transform:rotate(-15deg);}}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={theme:{extend:{"colors":{"on-primary-fixed-variant":"#003fa4","primary-container":"#0066ff","on-secondary":"#ffffff","surface-container-high":"#e6e8ea","inverse-primary":"#b3c5ff","on-surface":"#191c1e","tertiary-fixed-dim":"#bec6e0","surface-container-lowest":"#ffffff","surface-variant":"#e0e3e5","tertiary-container":"#697188","primary":"#0050cb","secondary-fixed-dim":"#b7c8e1","on-background":"#191c1e","on-secondary-container":"#54647a","on-error-container":"#93000a","tertiary":"#51596f","on-tertiary-container":"#f7f7ff","on-error":"#ffffff","secondary":"#505f76","on-primary-fixed":"#001849","secondary-fixed":"#d3e4fe","on-secondary-fixed-variant":"#38485d","inverse-surface":"#2d3133","surface-tint":"#0054d6","surface":"#f7f9fb","on-tertiary-fixed":"#131b2e","background":"#f7f9fb","on-tertiary-fixed-variant":"#3f465c","secondary-container":"#d0e1fb","tertiary-fixed":"#dae2fd","primary-fixed":"#dae1ff","surface-container-low":"#f2f4f6","error-container":"#ffdad6","on-primary":"#ffffff","error":"#ba1a1a","surface-container":"#eceef0","on-primary-container":"#f8f7ff","inverse-on-surface":"#eff1f3","outline":"#727687","surface-dim":"#d8dadc","on-surface-variant":"#424656","outline-variant":"#c2c6d8","surface-bright":"#f7f9fb","on-tertiary":"#ffffff","primary-fixed-dim":"#b3c5ff","on-secondary-fixed":"#0b1c30","surface-container-highest":"#e0e3e5"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"section-margin":"48px","container-padding":"32px","card-gap":"24px","unit":"8px","gutter":"24px"},"fontFamily":{"headline-sm":["Inter"],"label-md":["Geist"],"display-lg":["Inter"],"body-lg":["Inter"],"headline-lg-mobile":["Inter"],"headline-md":["Inter"],"body-md":["Inter"],"body-sm":["Inter"]},"fontSize":{"headline-sm":["20px",{"lineHeight":"28px","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.05em","fontWeight":"600"}],"display-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","fontWeight":"700"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["16px",{"lineHeight":"24px","fontWeight":"400"}],"body-sm":["14px",{"lineHeight":"20px","fontWeight":"400"}]}}}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@100..900&display=swap" rel="stylesheet"/></head><body class="bg-surface font-body-md text-on-surface min-h-screen"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest z-50 flex flex-col border-r border-outline-variant/30 transition-all duration-300"><div class="p-6 flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white shadow-sm flex-shrink-0"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/><path d="m9 12 2 2 4-4"/></svg></div><span class="font-headline-md text-primary tracking-tight font-bold">EXAMORA</span></div><nav class="flex-1 px-4 space-y-2 mt-4" data-active-classes="bg-primary text-on-primary shadow-lg shadow-primary/20"><a aria-current="page" class="nav-link flex items-center px-4 py-3 rounded-xl transition-all group bg-primary text-on-primary shadow-lg shadow-primary/20" data-path="dashboard" href="#"><span class="material-symbols-outlined mr-4 transition-transform">dashboard</span><span class="font-label-md">Dashboard</span></a><a class="nav-link flex items-center px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="examinations" href="#"><span class="material-symbols-outlined mr-4 transition-transform">quiz</span><span class="font-label-md">Examinations</span></a><a class="nav-link flex items-center px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="question-bank" href="#"><span class="material-symbols-outlined mr-4 transition-transform">database</span><span class="font-label-md">Question Bank</span></a><a class="nav-link flex items-center px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="results-analytics" href="#"><span class="material-symbols-outlined mr-4 transition-transform">analytics</span><span class="font-label-md">Results & Analytics</span></a><a class="nav-link flex items-center px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="students" href="#"><span class="material-symbols-outlined mr-4 transition-transform">group</span><span class="font-label-md">Students</span></a><a class="nav-link flex items-center px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="settings" href="#"><span class="material-symbols-outlined mr-4 transition-transform group-hover:rotate-45">settings</span><span class="font-label-md">Settings</span></a></nav><div class="px-4 py-8 border-t border-outline-variant/20"><a class="flex items-center px-4 py-3 rounded-xl text-error hover:bg-error-container hover:text-on-error-container transition-all group" href="#"><span class="material-symbols-outlined mr-4">logout</span><span class="font-label-md">Logout</span></a></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/80 backdrop-blur-xl z-40 border-b border-outline-variant/30 flex items-center justify-between px-container-padding"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-on-surface-variant">search</span><input class="search-input bg-surface-container-high/50 border-none rounded-full py-2 pl-10 pr-4 text-body-sm w-64 focus:w-80 focus:ring-2 focus:ring-primary/20 outline-none" placeholder="Search exams, students..." type="text"/></div><div class="flex items-center gap-6"><div class="bell-icon relative cursor-pointer"><span class="material-symbols-outlined text-on-surface-variant">notifications</span><span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full border-2 border-surface"></span></div><div class="flex items-center gap-3 pl-4 border-l border-outline-variant/30"><div class="text-right hidden sm:block"><p class="text-body-sm font-bold text-on-surface leading-none">Dr. Julian Reed</p><p class="text-[10px] uppercase tracking-widest text-on-surface-variant mt-1">Administrator</p></div><div class="w-9 h-9 rounded-full bg-white text-slate-400 border border-slate-200 shadow-sm flex items-center justify-center select-none"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg></div></div></div></header><main class="relative pt-16 bg-surface min-h-screen p-container-padding"><div class="flex flex-col w-full gap-section-margin">
+<!-- Summary Metrics -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-card-gap">
+<!-- Metric 1 -->
+<div class="stagger-enter flex flex-col p-6 rounded-2xl bg-surface-container-lowest shadow-sm transition-all duration-500 ease-out" style="opacity: 0; transform: translateY(20px);">
+<div class="flex justify-between items-start mb-6">
+<div class="p-3 rounded-xl bg-primary-fixed text-on-primary-fixed flex items-center justify-center group">
+<span class="material-symbols-outlined transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110">task_alt</span>
+</div>
+<div class="px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+<span class="font-label-md text-label-md">+4 This Term</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-display-lg text-display-lg text-on-surface count-up" data-target="28">0</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Exams Completed</span>
+</div>
+</div>
+<!-- Metric 2 -->
+<div class="stagger-enter flex flex-col p-6 rounded-2xl bg-surface-container-lowest shadow-sm transition-all duration-500 ease-out" style="opacity: 0; transform: translateY(20px);">
+<div class="flex justify-between items-start mb-6">
+<div class="p-3 rounded-xl bg-secondary-container text-on-secondary-container flex items-center justify-center group">
+<span class="material-symbols-outlined transition-transform duration-300 group-hover:-rotate-12 group-hover:scale-110">analytics</span>
+</div>
+<div class="px-2 py-1 rounded-md bg-secondary-container text-on-secondary-container flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+<span class="font-label-md text-label-md">+2.5%</span>
+</div>
+</div>
+<div class="flex flex-col gap-1 flex-row items-baseline">
+<span class="font-display-lg text-display-lg text-on-surface count-up" data-target="92">0</span>
+<span class="font-headline-md text-headline-md text-on-surface-variant ml-1">%</span>
+<span class="font-body-md text-body-md text-on-surface-variant w-full mt-1">Average Score</span>
+</div>
+</div>
+<!-- Metric 3 -->
+<div class="stagger-enter flex flex-col p-6 rounded-2xl bg-surface-container-lowest shadow-sm transition-all duration-500 ease-out" style="opacity: 0; transform: translateY(20px);">
+<div class="flex justify-between items-start mb-6">
+<div class="p-3 rounded-xl bg-tertiary-container text-on-tertiary-container flex items-center justify-center group">
+<span class="material-symbols-outlined transition-transform duration-300 group-hover:scale-110">psychology</span>
+</div>
+<div class="px-2 py-1 rounded-md bg-surface-container-high text-on-surface-variant flex items-center gap-1">
+<span class="font-label-md text-label-md">Top 10%</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-display-lg text-display-lg text-on-surface count-up" data-target="1450">0</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Questions Answered</span>
+</div>
+</div>
+<!-- Metric 4 -->
+<div class="stagger-enter flex flex-col p-6 rounded-2xl bg-surface-container-lowest shadow-sm transition-all duration-500 ease-out" style="opacity: 0; transform: translateY(20px);">
+<div class="flex justify-between items-start mb-6">
+<div class="p-3 rounded-xl bg-error-container text-on-error-container flex items-center justify-center group">
+<span class="material-symbols-outlined transition-transform duration-300 group-hover:rotate-[360deg]">workspace_premium</span>
+</div>
+<div class="px-2 py-1 rounded-md bg-surface-container-high text-on-surface-variant flex items-center gap-1">
+<span class="font-label-md text-label-md">Global Rank</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-display-lg text-display-lg text-on-surface">#<span class="count-up" data-target="42">0</span></span>
+<span class="font-body-md text-body-md text-on-surface-variant">Platform Standing</span>
+</div>
+</div>
+</div>
+<!-- Analytics & Focus Split -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-card-gap">
+<!-- Performance Chart -->
+<div class="stagger-enter lg:col-span-2 bg-surface-container-lowest shadow-sm rounded-2xl p-8 flex flex-col transition-all duration-500 ease-out" style="opacity: 0; transform: translateY(20px);">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Performance Trend</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Scores across last 6 assessments</p>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 bg-surface-container-low text-on-surface rounded-xl hover:bg-surface-container transition-colors group">
+<span class="font-label-md text-label-md">Last 3 Months</span>
+<span class="material-symbols-outlined text-[18px] transition-transform group-hover:translate-y-0.5">expand_more</span>
+</button>
+</div>
+<div class="relative w-full h-64 flex-1">
+<!-- Decorative background grid -->
+<div class="absolute inset-0 flex flex-col justify-between opacity-10 pointer-events-none">
+<div class="w-full h-[1px] bg-on-surface"></div>
+<div class="w-full h-[1px] bg-on-surface"></div>
+<div class="w-full h-[1px] bg-on-surface"></div>
+<div class="w-full h-[1px] bg-on-surface"></div>
+</div>
+<!-- SVG Chart -->
+<svg class="w-full h-full overflow-visible preserve-3d" preserveaspectratio="none" viewbox="0 0 600 200">
+<!-- Bars -->
+<rect class="chart-bar fill-primary-fixed transition-all duration-[1200ms] ease-[cubic-bezier(0.2,0.8,0.2,1)]" data-height="120" data-y="80" height="0" rx="4" width="40" x="40" y="200"></rect>
+<rect class="chart-bar fill-primary-fixed transition-all duration-[1200ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] delay-[50ms]" data-height="140" data-y="60" height="0" rx="4" width="40" x="140" y="200"></rect>
+<rect class="chart-bar fill-primary-fixed transition-all duration-[1200ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] delay-[100ms]" data-height="100" data-y="100" height="0" rx="4" width="40" x="240" y="200"></rect>
+<rect class="chart-bar fill-primary-fixed transition-all duration-[1200ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] delay-[150ms]" data-height="160" data-y="40" height="0" rx="4" width="40" x="340" y="200"></rect>
+<rect class="chart-bar fill-primary-fixed transition-all duration-[1200ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] delay-[200ms]" data-height="150" data-y="50" height="0" rx="4" width="40" x="440" y="200"></rect>
+<rect class="chart-bar fill-primary transition-all duration-[1200ms] ease-[cubic-bezier(0.2,0.8,0.2,1)] delay-[250ms]" data-height="180" data-y="20" height="0" rx="4" width="40" x="540" y="200"></rect>
+<!-- Line Overlay -->
+<path class="text-on-primary-fixed-variant opacity-80 chart-line" d="M 60 90 L 160 70 L 260 110 L 360 50 L 460 60 L 560 30" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" style="stroke-dasharray: 1000; stroke-dashoffset: 1000; transition: stroke-dashoffset 1.5s cubic-bezier(0.4,0,0.2,1) 0.5s;"></path>
+<!-- Data Points on Line -->
+<circle class="fill-surface stroke-on-primary-fixed-variant stroke-[3px] chart-point opacity-0 transition-opacity duration-300 delay-[600ms]" cx="60" cy="90" r="6"></circle>
+<circle class="fill-surface stroke-on-primary-fixed-variant stroke-[3px] chart-point opacity-0 transition-opacity duration-300 delay-[800ms]" cx="160" cy="70" r="6"></circle>
+<circle class="fill-surface stroke-on-primary-fixed-variant stroke-[3px] chart-point opacity-0 transition-opacity duration-300 delay-[1000ms]" cx="260" cy="110" r="6"></circle>
+<circle class="fill-surface stroke-on-primary-fixed-variant stroke-[3px] chart-point opacity-0 transition-opacity duration-300 delay-[1200ms]" cx="360" cy="50" r="6"></circle>
+<circle class="fill-surface stroke-on-primary-fixed-variant stroke-[3px] chart-point opacity-0 transition-opacity duration-300 delay-[1400ms]" cx="460" cy="60" r="6"></circle>
+<circle class="fill-surface stroke-primary stroke-[4px] chart-point opacity-0 transition-opacity duration-300 delay-[1600ms]" cx="560" cy="30" r="6"></circle>
+</svg>
+</div>
+<div class="flex justify-between w-full mt-4 px-6 text-on-surface-variant font-label-md text-label-md">
+<span>Sep 1</span>
+<span>Sep 15</span>
+<span>Oct 1</span>
+<span>Oct 15</span>
+<span>Nov 1</span>
+<span class="text-primary">Latest</span>
+</div>
+</div>
+<!-- Upcoming Exam Spotlight -->
+<div class="stagger-enter relative lg:col-span-1 rounded-2xl shadow-sm overflow-hidden flex flex-col justify-end min-h-[360px] transition-all duration-500 ease-out" style="opacity: 0; transform: translateY(20px);">
+<!-- Clean Gradient Background -->
+<div class="absolute inset-0 bg-primary-container/80"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-on-primary-fixed via-on-primary-fixed/90 to-transparent"></div>
+<div class="relative z-10 p-8 flex flex-col gap-4 text-on-primary">
+<div class="flex items-center gap-2 opacity-80 mb-2">
+<span class="material-symbols-outlined text-[18px]">notifications_active</span>
+<span class="font-label-md text-label-md tracking-widest uppercase">Upcoming Assessment</span>
+</div>
+<h3 class="font-display-lg text-display-lg leading-tight">Advanced<br/>Calculus II</h3>
+<div class="flex flex-col gap-1 mt-2 mb-6">
+<div class="flex items-center gap-3 opacity-90">
+<span class="material-symbols-outlined text-[20px]">calendar_month</span>
+<span class="font-body-md text-body-md">November 12, 2023</span>
+</div>
+<div class="flex items-center gap-3 opacity-90">
+<span class="material-symbols-outlined text-[20px]">schedule</span>
+<span class="font-body-md text-body-md">10:00 AM — 12:30 PM (EST)</span>
+</div>
+</div>
+<button class="bg-primary-fixed text-on-primary-fixed font-label-md text-label-md py-4 px-8 rounded-xl hover:scale-[1.02] transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] shadow-lg hover:shadow-xl self-start w-full flex justify-between items-center group">
+                    Prepare Now
+                    <span class="material-symbols-outlined transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Recent Exams List -->
+<div class="stagger-enter bg-surface-container-lowest shadow-sm rounded-2xl p-8 flex flex-col gap-6 transition-all duration-500 ease-out" style="opacity: 0; transform: translateY(20px);">
+<div class="flex justify-between items-center">
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Recent Examinations</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Review your latest submissions and analytics</p>
+</div>
+<button class="text-primary font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container px-5 py-2.5 rounded-xl transition-colors flex items-center gap-2">
+                View History
+                <span class="material-symbols-outlined text-[18px]">history</span>
+</button>
+</div>
+<!-- List Container -->
+<div class="flex flex-col gap-2 mt-4">
+<!-- Row 1 -->
+<div class="group flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-xl hover:bg-surface-container-low transition-all duration-300 hover:-translate-y-1 hover:shadow-md cursor-pointer bg-surface/40">
+<div class="flex items-center gap-5">
+<div class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center group-hover:scale-110 transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)]">
+<span class="material-symbols-outlined">science</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Quantum Mechanics</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">PHY-401 • Nov 02, 2023</span>
+</div>
+</div>
+<div class="flex items-center gap-8 mt-4 sm:mt-0 ml-17 sm:ml-0">
+<div class="flex flex-col items-end">
+<span class="font-headline-sm text-headline-sm text-on-surface">96%</span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Score</span>
+</div>
+<div class="bg-primary-fixed text-on-primary-fixed px-4 py-1.5 rounded-full font-label-md text-label-md shadow-sm w-24 text-center">
+                        Excellent
+                    </div>
+<span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-x-1 duration-300 hidden sm:block">chevron_right</span>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="group flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-xl hover:bg-surface-container-low transition-all duration-300 hover:-translate-y-1 hover:shadow-md cursor-pointer bg-surface/40">
+<div class="flex items-center gap-5">
+<div class="w-12 h-12 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center group-hover:scale-110 transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)]">
+<span class="material-symbols-outlined">memory</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Data Structures</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">CSC-210 • Oct 28, 2023</span>
+</div>
+</div>
+<div class="flex items-center gap-8 mt-4 sm:mt-0 ml-17 sm:ml-0">
+<div class="flex flex-col items-end">
+<span class="font-headline-sm text-headline-sm text-on-surface">88%</span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Score</span>
+</div>
+<div class="bg-secondary-container text-on-secondary-container px-4 py-1.5 rounded-full font-label-md text-label-md shadow-sm w-24 text-center">
+                        Passed
+                    </div>
+<span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-x-1 duration-300 hidden sm:block">chevron_right</span>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="group flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-xl hover:bg-surface-container-low transition-all duration-300 hover:-translate-y-1 hover:shadow-md cursor-pointer bg-surface/40">
+<div class="flex items-center gap-5">
+<div class="w-12 h-12 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center group-hover:scale-110 transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)]">
+<span class="material-symbols-outlined">menu_book</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Modern Literature</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">ENG-305 • Oct 15, 2023</span>
+</div>
+</div>
+<div class="flex items-center gap-8 mt-4 sm:mt-0 ml-17 sm:ml-0">
+<div class="flex flex-col items-end">
+<span class="font-headline-sm text-headline-sm text-on-surface">92%</span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Score</span>
+</div>
+<div class="bg-secondary-container text-on-secondary-container px-4 py-1.5 rounded-full font-label-md text-label-md shadow-sm w-24 text-center">
+                        Passed
+                    </div>
+<span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-x-1 duration-300 hidden sm:block">chevron_right</span>
+</div>
+</div>
+<!-- Row 4 -->
+<div class="group flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-xl hover:bg-surface-container-low transition-all duration-300 hover:-translate-y-1 hover:shadow-md cursor-pointer bg-surface/40">
+<div class="flex items-center gap-5">
+<div class="w-12 h-12 rounded-full bg-error-container text-on-error-container flex items-center justify-center group-hover:scale-110 transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)]">
+<span class="material-symbols-outlined">calculate</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors">Linear Algebra</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">MAT-201 • Oct 01, 2023</span>
+</div>
+</div>
+<div class="flex items-center gap-8 mt-4 sm:mt-0 ml-17 sm:ml-0">
+<div class="flex flex-col items-end">
+<span class="font-headline-sm text-headline-sm text-on-surface">64%</span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Score</span>
+</div>
+<div class="bg-error-container text-on-error-container px-4 py-1.5 rounded-full font-label-md text-label-md shadow-sm w-24 text-center">
+                        Review
+                    </div>
+<span class="material-symbols-outlined text-on-surface-variant opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-x-1 duration-300 hidden sm:block">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        // 1. Staggered Entrance Animation
+        const staggerEls = document.querySelectorAll('.stagger-enter');
+        staggerEls.forEach((el, index) => {
+            setTimeout(() => {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            }, index * 120);
+        });
+
+        // 2. Count-Up Animation for Metrics
+        const counters = document.querySelectorAll('.count-up');
+        const countUpObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = +counter.getAttribute('data-target');
+                    const duration = 2000; // ms
+                    const frameRate = 16; // ms per frame (~60fps)
+                    const totalFrames = duration / frameRate;
+                    const step = target / totalFrames;
+                    let current = 0;
+
+                    const updateCounter = () => {
+                        current += step;
+                        if (current < target) {
+                            counter.innerText = Math.ceil(current).toLocaleString();
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.innerText = target.toLocaleString();
+                        }
+                    };
+                    
+                    // Add slight delay to match stagger
+                    setTimeout(() => {
+                        requestAnimationFrame(updateCounter);
+                    }, 300);
+                    
+                    countUpObserver.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        counters.forEach(counter => countUpObserver.observe(counter));
+
+        // 3. Chart Animations (Grow Bars & Draw Line)
+        const chartObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Animate Bars
+                    const bars = document.querySelectorAll('.chart-bar');
+                    bars.forEach(bar => {
+                        bar.setAttribute('height', bar.getAttribute('data-height'));
+                        bar.setAttribute('y', bar.getAttribute('data-y'));
+                    });
+
+                    // Animate Line
+                    const line = document.querySelector('.chart-line');
+                    if (line) {
+                        line.style.strokeDashoffset = '0';
+                    }
+
+                    // Animate Points
+                    const points = document.querySelectorAll('.chart-point');
+                    points.forEach(point => {
+                        point.classList.remove('opacity-0');
+                        point.classList.add('opacity-100');
+                    });
+
+                    chartObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const chartContainer = document.querySelector('svg');
+        if (chartContainer) {
+            chartObserver.observe(chartContainer);
+        }
+    });
+</script></main></div></body></html>

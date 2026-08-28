@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>EXAMORA | Confirm Examination Submission</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0050cb",
+                        "primary-container": "#0066ff",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#dae1ff",
+                        "primary-fixed-dim": "#b3c5ff",
+                        "on-primary-fixed": "#001849",
+                        "secondary": "#505f76",
+                        "secondary-container": "#d0e1fb",
+                        "on-secondary-container": "#54647a",
+                        "surface": "#f7f9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-container": "#eceef0",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-surface": "#191c1e",
+                        "on-surface-variant": "#424656",
+                        "outline": "#727687",
+                        "outline-variant": "#c2c6d8",
+                        "error": "#ba1a1a",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "success": "#16a34a",
+                        "success-container": "#dcfce7"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "body-md": ["Inter", "sans-serif"],
+                        "headline-sm": ["Inter", "sans-serif"],
+                        "headline-md": ["Inter", "sans-serif"],
+                        "display-lg": ["Inter", "sans-serif"],
+                        "label-md": ["Geist", "Inter", "sans-serif"]
+                    }
+                }
+            }
+        };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+    <style>
+        @layer base {
+            html, body { margin: 0; padding: 0; }
+            body { overscroll-behavior: none; }
+        }
+        ::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-surface">
+
+<header class="fixed top-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+    <div class="h-16 w-full px-6 md:px-12 flex items-center justify-between">
+        <a href="../student_dashboard/code.html" class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white shadow-sm flex-shrink-0">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/>
+                    <path d="m9 12 2 2 4-4"/>
+                </svg>
+            </div>
+            <span class="font-headline-sm text-primary tracking-tight font-bold">EXAMORA</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6">
+            <a class="font-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="dashboard" href="../student_dashboard/code.html">Dashboard</a>
+            <a class="font-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="examinations" href="../examinations/code.html">Examinations</a>
+            <a class="font-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="results-analytics" href="../exam_results_analytics/code.html">Results</a>
+            <a class="font-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="student-profile" href="../student_profile/code.html">Profile</a>
+        </nav>
+        <div class="flex items-center gap-3">
+            <a href="../student_profile/code.html" class="flex items-center gap-3 pl-2 ml-2 border-l border-outline-variant hover:opacity-80 transition-opacity">
+                <div class="text-right hidden sm:block">
+                    <p class="font-label-md text-on-surface leading-none student-name-display">Student</p>
+                    <p class="text-[10px] text-on-surface-variant student-id-display">Student ID</p>
+                </div>
+                <div class="student-avatar-display"></div>
+            </a>
+        </div>
+    </div>
+</header>
+
+<main class="w-full pt-[64px] min-h-screen bg-background flex flex-col justify-between">
+    <div class="flex flex-col w-full h-full items-center justify-center relative px-6 py-12 flex-1">
+        <div class="relative z-10 w-full max-w-lg bg-surface-container-lowest rounded-2xl shadow-xl border border-outline-variant/30 p-8 md:p-10 flex flex-col items-center">
+            
+            <!-- Icon Indicator -->
+            <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 text-primary">
+                <span class="material-symbols-outlined text-4xl">assignment_turned_in</span>
+            </div>
+
+            <h1 class="text-2xl font-bold text-on-surface mb-2 text-center tracking-tight">Submit Examination?</h1>
+            <p class="text-sm text-on-surface-variant text-center mb-8">You are about to finalize and submit your assessment answers. Please review your answered questions before confirming.</p>
+            
+            <!-- Progress Counter Grid -->
+            <div class="w-full grid grid-cols-2 gap-4 mb-8">
+                <div class="bg-surface-container-low rounded-xl p-5 flex flex-col items-center justify-center border border-outline-variant/20">
+                    <span class="text-4xl font-black text-primary mb-1" id="count-answered">0</span>
+                    <span class="text-xs uppercase font-bold tracking-wider text-on-surface-variant">Answered</span>
+                    <div class="w-full bg-surface-container-highest h-1.5 mt-3 rounded-full overflow-hidden">
+                        <div class="bg-primary h-full rounded-full transition-all duration-500" id="bar-answered" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <div class="bg-surface-container-low rounded-xl p-5 flex flex-col items-center justify-center border border-outline-variant/20">
+                    <span class="text-4xl font-black text-error mb-1" id="count-unanswered">0</span>
+                    <span class="text-xs uppercase font-bold tracking-wider text-on-surface-variant">Unanswered</span>
+                    <div class="w-full bg-surface-container-highest h-1.5 mt-3 rounded-full overflow-hidden">
+                        <div class="bg-error h-full rounded-full transition-all duration-500" id="bar-unanswered" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Server Time Remaining Display -->
+            <div class="w-full bg-secondary-container/70 rounded-xl p-4 mb-8 flex items-center justify-between border border-secondary/20">
+                <div class="flex items-center gap-2.5">
+                    <span class="material-symbols-outlined text-primary text-xl">schedule</span>
+                    <span class="text-xs font-bold text-on-secondary-container uppercase tracking-wider">Time Remaining</span>
+                </div>
+                <span class="text-xl font-bold font-mono text-primary tracking-tight" id="confirm-timer">--:--</span>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="w-full flex flex-col sm:flex-row gap-4">
+                <a href="../live_examination/code.html" id="return-exam-btn" class="flex-1 py-3.5 px-6 rounded-xl text-xs font-bold text-primary bg-transparent border-2 border-primary hover:bg-primary/5 transition-colors text-center tracking-wider flex items-center justify-center cursor-pointer">
+                    RETURN TO EXAM
+                </a>
+                <button class="flex-1 py-3.5 px-6 rounded-xl text-xs font-bold text-on-primary bg-primary hover:bg-primary-container transition-all shadow-md shadow-primary/20 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50" id="confirm-submit-btn">
+                    <span class="btn-text tracking-wider font-semibold">CONFIRM & SUBMIT</span>
+                    <span class="material-symbols-outlined hidden loading-spinner animate-spin text-sm">sync</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Institutional Footer -->
+    <footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30 py-4 px-6 md:px-12 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-on-surface-variant">
+        <p>© EXAMORA Institutional Examination Portal. All rights reserved.</p>
+        <p class="text-outline">Server-Authoritative Evaluation • SHA256-Secured</p>
+    </footer>
+</main>
+
+<script src="../shared/auth.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+    // 1. Authenticate student session
+    const student = await requireStudentAuth({ redirectOnFail: true, updateUI: true });
+    if (!student) return;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const examId = urlParams.get('exam_id') || '1';
+
+    // Update return button
+    const returnBtn = document.getElementById('return-exam-btn');
+    if (returnBtn) {
+        returnBtn.href = `../live_examination/code.html?exam_id=${examId}`;
+    }
+
+    // 2. Read stored answers safely
+    let currentAnswers = {};
+    try {
+        const pending = JSON.parse(localStorage.getItem('pending_submission') || 'null');
+        if (pending && pending.answers) {
+            currentAnswers = pending.answers;
+        } else {
+            const saved = localStorage.getItem(`exam_answers_${examId}`) || localStorage.getItem('exam_answers');
+            if (saved) currentAnswers = JSON.parse(saved);
+        }
+    } catch (e) {
+        console.warn('Failed to parse answers:', e);
+    }
+
+    // 3. Fetch questions to determine authoritative question count
+    let totalQuestionsCount = Object.keys(currentAnswers).length || 10;
+    try {
+        const qRes = await fetchApi(`/api/examinations/${examId}/questions`);
+        if (qRes.ok) {
+            const qData = await qRes.json();
+            if (qData && qData.success && Array.isArray(qData.questions) && qData.questions.length > 0) {
+                totalQuestionsCount = qData.questions.length;
+            }
+        }
+    } catch (e) {}
+
+    let answeredTotal = 0;
+    Object.values(currentAnswers).forEach(val => {
+        if (val && typeof val === 'string' && val.trim().length > 0) {
+            answeredTotal++;
+        }
+    });
+
+    const unansweredTotal = Math.max(0, totalQuestionsCount - answeredTotal);
+
+    // Update UI numbers & progress bars
+    const countAnsEl = document.getElementById('count-answered');
+    const countUnansEl = document.getElementById('count-unanswered');
+    const barAnsEl = document.getElementById('bar-answered');
+    const barUnansEl = document.getElementById('bar-unanswered');
+
+    if (countAnsEl) countAnsEl.textContent = String(answeredTotal);
+    if (countUnansEl) countUnansEl.textContent = String(unansweredTotal);
+
+    const baseTotal = totalQuestionsCount || 1;
+    const answeredPct = Math.round((answeredTotal / baseTotal) * 100);
+    if (barAnsEl) barAnsEl.style.width = `${answeredPct}%`;
+    if (barUnansEl) barUnansEl.style.width = `${100 - answeredPct}%`;
+
+    // 4. Server-Authoritative Timer Display
+    function fmtTimer(seconds) {
+        const safe = Math.max(0, seconds);
+        const m = Math.floor(safe / 60);
+        const s = safe % 60;
+        return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+    }
+
+    const timerEl = document.getElementById('confirm-timer');
+    try {
+        const sessResp = await fetchApi(`/api/examinations/${examId}/session`);
+        if (sessResp.ok) {
+            const sessData = await sessResp.json();
+            if (sessData && sessData.success && sessData.session) {
+                const remaining = parseInt(sessData.session.remaining_seconds) || 0;
+                if (timerEl) timerEl.textContent = fmtTimer(remaining);
+            }
+        } else {
+            const cachedTime = parseInt(localStorage.getItem(`exam_time_left_${examId}`) || localStorage.getItem('exam_time_left')) || 0;
+            if (timerEl) timerEl.textContent = fmtTimer(cachedTime);
+        }
+    } catch (e) {
+        const cachedTime = parseInt(localStorage.getItem(`exam_time_left_${examId}`) || localStorage.getItem('exam_time_left')) || 0;
+        if (timerEl) timerEl.textContent = fmtTimer(cachedTime);
+    }
+
+    // 5. Submit Handler
+    const submitBtn = document.getElementById('confirm-submit-btn');
+    if (submitBtn) {
+        submitBtn.addEventListener('click', async (ev) => {
+            ev.preventDefault();
+            const textSpan = submitBtn.querySelector('.btn-text');
+            const spinner = submitBtn.querySelector('.loading-spinner');
+
+            submitBtn.disabled = true;
+            if (textSpan) textSpan.classList.add('opacity-50');
+            if (spinner) spinner.classList.remove('hidden');
+
+            const payload = {
+                student_id: student.student_id,
+                exam_id: parseInt(examId),
+                answers: currentAnswers
+            };
+
+            try {
+                const resp = await fetchApi(`/api/examinations/${examId}/submit`, {
+                    method: 'POST',
+                    body: JSON.stringify(payload)
+                });
+                const result = await resp.json().catch(() => ({}));
+
+                if (!resp.ok || !result.success) {
+                    showToast('Submission rejected: ' + (result && result.message ? result.message : 'Session expired or already submitted.'), 'error');
+                    setTimeout(() => {
+                        window.location.href = `../exam_result_details/code.html?exam_id=${examId}`;
+                    }, 1500);
+                    return;
+                }
+
+                if (result.result) {
+                    localStorage.setItem('last_result', JSON.stringify(result.result));
+                }
+                clearActiveSessionState(examId);
+                showToast('Exam submitted successfully! Generating official result...', 'success');
+                setTimeout(() => {
+                    window.location.href = `../exam_result_details/code.html?exam_id=${examId}`;
+                }, 600);
+
+            } catch (err) {
+                console.error('Submission error:', err);
+                showToast('Failed to contact examination server. Please retry.', 'error');
+                submitBtn.disabled = false;
+                if (textSpan) textSpan.classList.remove('opacity-50');
+                if (spinner) spinner.classList.add('hidden');
+            }
+        });
+    }
+});
+
+function clearActiveSessionState(examId) {
+    try {
+        localStorage.removeItem('pending_submission');
+        localStorage.removeItem(`exam_answers_${examId}`);
+        localStorage.removeItem('exam_answers');
+        localStorage.removeItem('exam_marked');
+        localStorage.removeItem(`exam_time_left_${examId}`);
+        localStorage.removeItem('exam_time_left');
+    } catch (e) {}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={theme:{extend:{"colors":{"on-tertiary-container":"#f7f7ff","on-secondary-container":"#54647a","surface-container-low":"#f2f4f6","surface-container-lowest":"#ffffff","outline":"#727687","on-tertiary-fixed-variant":"#3f465c","on-primary-fixed-variant":"#003fa4","secondary":"#505f76","on-surface-variant":"#424656","on-error":"#ffffff","surface":"#f7f9fb","on-primary-fixed":"#001849","on-error-container":"#93000a","surface-bright":"#f7f9fb","on-secondary":"#ffffff","primary-fixed":"#dae1ff","inverse-on-surface":"#eff1f3","tertiary":"#51596f","surface-variant":"#e0e3e5","surface-container-highest":"#e0e3e5","error-container":"#ffdad6","primary-container":"#0066ff","tertiary-container":"#697188","on-surface":"#191c1e","inverse-primary":"#b3c5ff","primary-fixed-dim":"#b3c5ff","on-primary":"#ffffff","primary":"#0050cb","tertiary-fixed-dim":"#bec6e0","surface-container-high":"#e6e8ea","on-secondary-fixed-variant":"#38485d","surface-tint":"#0054d6","on-secondary-fixed":"#0b1c30","secondary-container":"#d0e1fb","on-tertiary-fixed":"#131b2e","on-tertiary":"#ffffff","on-primary-container":"#f8f7ff","error":"#ba1a1a","secondary-fixed-dim":"#b7c8e1","on-background":"#191c1e","secondary-fixed":"#d3e4fe","surface-container":"#eceef0","background":"#f7f9fb","inverse-surface":"#2d3133","surface-dim":"#d8dadc","tertiary-fixed":"#dae2fd","outline-variant":"#c2c6d8"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"card-gap":"24px","unit":"8px","container-padding":"32px","gutter":"24px","section-margin":"48px"},"fontFamily":{"label-md":["Geist"],"body-md":["Inter"],"display-lg":["Inter"],"headline-md":["Inter"],"body-sm":["Inter"],"headline-lg-mobile":["Inter"],"headline-sm":["Inter"],"body-lg":["Inter"]},"fontSize":{"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.05em","fontWeight":"600"}],"body-md":["16px",{"lineHeight":"24px","fontWeight":"400"}],"display-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-sm":["14px",{"lineHeight":"20px","fontWeight":"400"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","fontWeight":"700"}],"headline-sm":["20px",{"lineHeight":"28px","fontWeight":"600"}],"body-lg":["18px",{"lineHeight":"28px","fontWeight":"400"}]}}}}</script><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@100..900&display=swap" rel="stylesheet"/></head><body class="bg-background font-body-md text-on-surface"><header class="fixed top-0 w-full z-50 bg-surface-container-lowest/90 backdrop-blur-md shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 w-full px-container-padding flex items-center justify-between"><a href="../student_dashboard/code.html" class="flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white shadow-sm flex-shrink-0"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/><path d="m9 12 2 2 4-4"/></svg></div><span class="font-headline-sm text-primary tracking-tight font-bold">EXAMORA</span></a><nav class="hidden md:flex items-center gap-gutter" data-active-classes="text-primary font-semibold"><a class="font-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="dashboard" href="../student_dashboard/code.html">Dashboard</a><a class="font-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="examinations" href="../examinations/code.html">Examinations</a><a class="font-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="results-analytics" href="../exam_results_analytics/code.html">Results</a><a class="font-label-md text-on-surface-variant hover:text-primary transition-colors" data-path="student-profile" href="../student_profile/code.html">Profile</a></nav><div class="flex items-center gap-unit"><a href="../student_profile/code.html" class="flex items-center gap-3 pl-2 ml-2 border-l border-outline-variant hover:opacity-80 transition-opacity"><div class="text-right hidden sm:block"><p class="font-label-md text-on-surface leading-none student-name-display">Student</p><p class="text-[10px] text-on-surface-variant student-id-display">Student</p></div><div class="student-avatar-display"></div></a></div></div><div class="h-10 bg-surface-container-low w-full px-container-padding flex items-center border-t border-outline-variant/30"><div class="flex items-center gap-2 text-xs font-label-md text-on-surface-variant"><a href="../student_dashboard/code.html" class="hover:text-primary transition-colors flex items-center gap-1"><span class="material-symbols-outlined text-sm">home</span><span>Dashboard</span></a><span class="material-symbols-outlined text-sm">chevron_right</span><span class="text-on-surface">Exam Instructions</span></div></div></header><main class="w-full pt-[104px] min-h-screen bg-background"><div class="flex flex-col w-full">
+<div class="w-full px-container-padding pb-section-margin relative overflow-hidden">
+<!-- Decorative background elements -->
+<div class="absolute top-0 right-0 w-3/4 h-[400px] bg-gradient-to-bl from-primary-fixed-dim/20 to-transparent blur-3xl -z-10 rounded-full mix-blend-multiply opacity-50 transform translate-x-1/4 -translate-y-1/4"></div>
+<div class="absolute bottom-0 left-0 w-1/2 h-[300px] bg-gradient-to-tr from-secondary-fixed/30 to-transparent blur-2xl -z-10 rounded-full mix-blend-multiply opacity-40 transform -translate-x-1/4 translate-y-1/4"></div>
+<div class="max-w-4xl mx-auto pt-8">
+<!-- Breadcrumb Context & Header Area -->
+<div class="mb-12 opacity-0 animate-fade-in-up" style="animation-delay: 100ms; animation-fill-mode: forwards;">
+<div class="flex items-center gap-3 mb-6">
+<span class="inline-block px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-md text-[10px] uppercase tracking-wider">CS-101</span>
+<span class="inline-block px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed font-label-md text-[10px] uppercase tracking-wider">Final Assessment</span>
+</div>
+<h1 class="font-display-lg text-on-surface mb-4 relative inline-block">
+          General Computer Science & IT
+          <div class="absolute bottom-1 left-0 w-full h-3 bg-secondary-container -z-10 transform -skew-x-12 opacity-70"></div>
+</h1>
+<p class="font-body-lg text-on-surface-variant max-w-2xl">
+          Comprehensive assessment of computer fundamentals, system components, memory concepts, and core algorithms.
+        </p>
+</div>
+<!-- Exam Meta Data Bento Grid -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-section-margin">
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-between opacity-0 animate-fade-in-up" style="animation-delay: 200ms; animation-fill-mode: forwards;">
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-tertiary">schedule</span>
+<span class="font-label-md text-tertiary">DURATION</span>
+</div>
+<div>
+<span class="font-headline-md text-on-surface block">60</span>
+<span class="font-body-sm text-on-surface-variant">Minutes</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-between opacity-0 animate-fade-in-up" style="animation-delay: 250ms; animation-fill-mode: forwards;">
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-primary">format_list_numbered</span>
+<span class="font-label-md text-primary">QUESTIONS</span>
+</div>
+<div>
+<span class="font-headline-md text-on-surface block">Standard</span>
+<span class="font-body-sm text-on-surface-variant">Multiple Choice</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-between opacity-0 animate-fade-in-up" style="animation-delay: 300ms; animation-fill-mode: forwards;">
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-secondary">military_tech</span>
+<span class="font-label-md text-secondary">TOTAL MARKS</span>
+</div>
+<div>
+<span class="font-headline-md text-on-surface block">Points</span>
+<span class="font-body-sm text-on-surface-variant">Per Question</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col justify-between opacity-0 animate-fade-in-up" style="animation-delay: 350ms; animation-fill-mode: forwards;">
+<div class="flex items-center justify-between mb-4">
+<span class="material-symbols-outlined text-on-surface-variant">rule</span>
+<span class="font-label-md text-on-surface-variant">PASSING</span>
+</div>
+<div>
+<span class="font-headline-md text-on-surface block">60%</span>
+<span class="font-body-sm text-on-surface-variant">Required to pass</span>
+</div>
+</div>
+</div>
+<!-- Main Instructions Area -->
+<div class="bg-surface-container-lowest rounded-[2rem] p-8 md:p-12 shadow-xl shadow-surface-variant/20 mb-12 opacity-0 animate-fade-in-up relative overflow-hidden" style="animation-delay: 450ms; animation-fill-mode: forwards;">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary-fixed rounded-full blur-[80px] -z-10 opacity-30 transform translate-x-1/2 -translate-y-1/2"></div>
+<h2 class="font-headline-md text-on-surface mb-8 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">info</span>
+          Important Examination Instructions
+        </h2>
+<div class="space-y-6" id="instruction-list">
+<div class="flex gap-4 group">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface font-label-md group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300">1</div>
+<div>
+<h3 class="font-headline-sm text-on-surface mb-1">Device & Connectivity</h3>
+<p class="font-body-md text-on-surface-variant">Ensure you have a stable internet connection. The examination timer is server-synchronized. Refreshing your browser preserves your active answers.</p>
+</div>
+</div>
+<div class="flex gap-4 group">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface font-label-md group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300">2</div>
+<div>
+<h3 class="font-headline-sm text-on-surface mb-1">Navigation & Palette</h3>
+<p class="font-body-md text-on-surface-variant">Use the Next and Previous buttons or click any item in the Question Navigator to jump directly to questions. You may mark questions for review.</p>
+</div>
+</div>
+<div class="flex gap-4 group">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface font-label-md group-hover:bg-primary group-hover:text-on-primary transition-colors duration-300">3</div>
+<div>
+<h3 class="font-headline-sm text-on-surface mb-1">Submission & Single Attempt</h3>
+<p class="font-body-md text-on-surface-variant">The examination will automatically submit when the timer expires. You may also submit early using the Submit Exam button. Only one attempt is permitted.</p>
+</div>
+</div>
+</div>
+<!-- Warning Box -->
+<div class="mt-10 p-6 rounded-xl bg-error-container/30 relative overflow-hidden group">
+<div class="absolute left-0 top-0 h-full w-1 bg-error group-hover:w-2 transition-all duration-300"></div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-error mt-1" style="font-variation-settings: 'FILL' 1;">warning</span>
+<div>
+<h4 class="font-headline-sm text-on-error-container mb-2">Automated Integrity System</h4>
+<p class="font-body-sm text-on-error-container/80">This examination session is protected by automated session monitoring. Duplicate submissions and expired submissions will be automatically rejected by the server.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Area -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-6 opacity-0 animate-fade-in-up" style="animation-delay: 600ms; animation-fill-mode: forwards;">
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="relative flex items-center justify-center">
+<input class="peer sr-only" id="agree-checkbox" type="checkbox"/>
+<div class="w-6 h-6 rounded border-2 border-outline-variant peer-checked:bg-primary peer-checked:border-primary transition-colors duration-200 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-sm opacity-0 peer-checked:opacity-100 transition-opacity duration-200">check</span>
+</div>
+</div>
+<span class="font-body-sm text-on-surface group-hover:text-primary transition-colors">I have read and understand the instructions</span>
+</label>
+<div class="flex items-center gap-4 w-full sm:w-auto">
+<a href="../student_dashboard/code.html" class="font-label-md text-on-surface-variant hover:text-on-surface px-4 py-2 transition-colors inline-flex items-center">
+            Cancel
+</a>
+<button class="group relative px-8 py-4 bg-surface-container-highest text-outline font-label-md rounded-xl overflow-hidden transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:scale-100 flex items-center gap-2" disabled="" id="start-btn">
+<span class="relative z-10 flex items-center gap-2" id="start-btn-text">
+              START EXAM
+              <span class="material-symbols-outlined text-sm transform group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</span>
+<span class="material-symbols-outlined text-sm animate-spin hidden" id="start-btn-spinner">sync</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<style>
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-fade-in-up {
+      animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+  </style>
+<script src="../shared/auth.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const checkbox = document.getElementById('agree-checkbox');
+      const startBtn = document.getElementById('start-btn');
+      const btnText = document.getElementById('start-btn-text');
+      const btnSpinner = document.getElementById('start-btn-spinner');
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const examId = urlParams.get('exam_id') || '1';
+
+      // Authenticate student session
+      const student = await requireStudentAuth({ redirectOnFail: true, updateUI: true });
+      if (!student) return;
+
+      // Fetch dynamic examination details
+      try {
+        const res = await fetchApi(`/api/examinations/${examId}`);
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.success && data.examination) {
+            const ex = data.examination;
+            const codeBadge = document.querySelector('span.uppercase.tracking-wider');
+            if (codeBadge) codeBadge.textContent = ex.exam_code;
+            
+            const titleEl = document.querySelector('h1.font-display-lg');
+            if (titleEl) {
+              titleEl.innerHTML = `${ex.title}<div class="absolute bottom-1 left-0 w-full h-3 bg-secondary-container -z-10 transform -skew-x-12 opacity-70"></div>`;
+            }
+
+            const descEl = document.querySelector('p.font-body-lg');
+            if (descEl && ex.description) descEl.textContent = ex.description;
+
+            // Update duration and marks
+            const durationNum = document.querySelector('.grid-cols-2 > div:nth-child(1) span.font-headline-md');
+            if (durationNum) durationNum.textContent = String(ex.duration_minutes);
+
+            const qCountNum = document.querySelector('.grid-cols-2 > div:nth-child(2) span.font-headline-md');
+            if (qCountNum) qCountNum.textContent = `${ex.question_count || 10}`;
+
+            const marksNum = document.querySelector('.grid-cols-2 > div:nth-child(3) span.font-headline-md');
+            if (marksNum) marksNum.textContent = `${ex.total_marks || 10}`;
+
+            const passNum = document.querySelector('.grid-cols-2 > div:nth-child(4) span.font-headline-md');
+            if (passNum) passNum.textContent = `${Math.round(ex.passing_percentage || 50)}%`;
+
+            if (ex.student_status === 'COMPLETED') {
+              showToast('You have already completed this examination.', 'info');
+              setTimeout(() => {
+                window.location.href = `../exam_result_details/code.html?exam_id=${examId}`;
+              }, 1200);
+              return;
+            }
+          }
+        }
+      } catch (err) {
+        console.warn('Could not fetch examination details:', err);
+      }
+
+      checkbox.addEventListener('change', (e) => {
+        if (e.target.checked) {
+          startBtn.removeAttribute('disabled');
+          startBtn.classList.remove('bg-surface-container-highest', 'text-outline');
+          startBtn.classList.add('bg-primary', 'text-on-primary', 'shadow-lg', 'shadow-primary/30', 'hover:scale-[1.02]', 'active:scale-95');
+        } else {
+          startBtn.setAttribute('disabled', 'true');
+          startBtn.classList.add('bg-surface-container-highest', 'text-outline');
+          startBtn.classList.remove('bg-primary', 'text-on-primary', 'shadow-lg', 'shadow-primary/30', 'hover:scale-[1.02]', 'active:scale-95');
+        }
+      });
+
+      // Start button click: request server to start exam session
+      startBtn.addEventListener('click', async (e) => {
+        if (startBtn.hasAttribute('disabled')) return;
+
+        startBtn.disabled = true;
+        btnText.classList.add('opacity-50');
+        btnSpinner.classList.remove('hidden');
+
+        try {
+          // Start exam session on server (authoritative start time)
+          const startResp = await fetchApi(`/api/examinations/${examId}/start`, {
+            method: 'POST'
+          });
+
+          const startData = await startResp.json().catch(() => ({}));
+          if (!startResp.ok || !startData.success) {
+            showToast(startData.message || 'Failed to start exam session on server.', 'error');
+            startBtn.disabled = false;
+            btnText.classList.remove('opacity-50');
+            btnSpinner.classList.add('hidden');
+            return;
+          }
+
+          // Save server remaining seconds
+          if (startData.remaining_seconds !== undefined) {
+            localStorage.setItem(`exam_time_left_${examId}`, String(startData.remaining_seconds));
+            localStorage.setItem('exam_time_left', String(startData.remaining_seconds));
+          }
+
+          // Proceed to live exam page
+          window.location.href = `../live_examination/code.html?exam_id=${examId}`;
+
+        } catch (err) {
+          console.error('Failed to start exam:', err);
+          showToast('Unable to contact the server. Please verify backend connection.', 'error');
+          startBtn.disabled = false;
+          btnText.classList.remove('opacity-50');
+          btnSpinner.classList.add('hidden');
+        }
+      });
+
+      // Staggered entrance for list items inside the instruction block
+      const listItems = document.querySelectorAll('#instruction-list > div');
+      listItems.forEach((item, index) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(10px)';
+        item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        
+        setTimeout(() => {
+          item.style.opacity = '1';
+          item.style.transform = 'translateY(0)';
+        }, 600 + (index * 150));
+      });
+    });
+</script>
+</div></main><footer class="w-full bg-surface-container-lowest border-t border-outline-variant/30 py-4 px-6 md:px-12 mt-12 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-on-surface-variant"><p>© EXAMORA Institutional Examination Portal. All rights reserved.</p><p class="text-outline">Server-Authoritative Evaluation • Proctoring Verified</p></footer></body></html>

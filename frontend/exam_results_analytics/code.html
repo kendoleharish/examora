@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>EXAMORA | Performance Analytics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0050cb",
+                        "primary-container": "#0066ff",
+                        "on-primary": "#ffffff",
+                        "primary-fixed": "#dae1ff",
+                        "primary-fixed-dim": "#b3c5ff",
+                        "on-primary-fixed": "#001849",
+                        "secondary": "#505f76",
+                        "secondary-container": "#d0e1fb",
+                        "on-secondary-container": "#54647a",
+                        "surface": "#f7f9fb",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-container": "#eceef0",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-surface": "#191c1e",
+                        "on-surface-variant": "#424656",
+                        "outline": "#727687",
+                        "outline-variant": "#c2c6d8",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-error-container": "#93000a",
+                        "success": "#16a34a",
+                        "success-container": "#dcfce7"
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        "body-md": ["Inter", "sans-serif"],
+                        "headline-sm": ["Inter", "sans-serif"],
+                        "headline-md": ["Inter", "sans-serif"],
+                        "display-lg": ["Inter", "sans-serif"],
+                        "label-md": ["Geist", "Inter", "sans-serif"]
+                    }
+                }
+            }
+        };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+    <style>
+        @layer base {
+            html, body { margin: 0; padding: 0; }
+            body { overscroll-behavior: none; }
+        }
+        ::-webkit-scrollbar { display: none; }
+        .score-ring { transition: stroke-dashoffset 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.2s; }
+        .topic-bar { transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1); }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface min-h-screen">
+
+<!-- Sidebar -->
+<aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest z-30 flex flex-col border-r border-outline-variant/30 transition-all duration-300">
+    <div class="p-6 flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white shadow-sm flex-shrink-0">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/>
+                <path d="m9 12 2 2 4-4"/>
+            </svg>
+        </div>
+        <span class="font-headline-md text-primary tracking-tight font-bold">EXAMORA</span>
+    </div>
+    <nav class="flex-1 px-4 space-y-2 mt-4">
+        <a class="nav-link flex items-center px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="dashboard" href="../student_dashboard/code.html">
+            <span class="material-symbols-outlined mr-4 transition-transform">dashboard</span>
+            <span class="font-label-md">Dashboard</span>
+        </a>
+        <a class="nav-link flex items-center px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="examinations" href="../examinations/code.html">
+            <span class="material-symbols-outlined mr-4 transition-transform">quiz</span>
+            <span class="font-label-md">Examinations</span>
+        </a>
+        <a aria-current="page" class="nav-link flex items-center px-4 py-3 rounded-xl transition-all group bg-primary text-on-primary shadow-lg shadow-primary/20" data-path="results-analytics" href="../exam_results_analytics/code.html">
+            <span class="material-symbols-outlined mr-4 transition-transform">analytics</span>
+            <span class="font-label-md">Results & Analytics</span>
+        </a>
+        <a class="nav-link flex items-center px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="student-profile" href="../student_profile/code.html">
+            <span class="material-symbols-outlined mr-4 transition-transform">person</span>
+            <span class="font-label-md">Profile</span>
+        </a>
+    </nav>
+    <div class="px-4 py-8 border-t border-outline-variant/20">
+        <a class="flex items-center px-4 py-3 rounded-xl text-error hover:bg-error-container hover:text-on-error-container transition-all group cursor-pointer" data-action="logout" href="#">
+            <span class="material-symbols-outlined mr-4">logout</span>
+            <span class="font-label-md">Logout</span>
+        </a>
+    </div>
+</aside>
+
+<!-- Main Wrapper -->
+<div class="pl-72">
+    <!-- Top Header -->
+    <header class="fixed top-0 left-72 right-0 h-16 bg-surface/80 backdrop-blur-xl z-20 border-b border-outline-variant/30 flex items-center justify-between px-8">
+        <div class="relative flex items-center">
+            <span class="material-symbols-outlined absolute left-3 text-on-surface-variant">search</span>
+            <input class="search-input bg-surface-container-high/50 border-none rounded-full py-2 pl-10 pr-4 text-sm w-64 focus:w-80 focus:ring-2 focus:ring-primary/20 outline-none" placeholder="Search assessments, categories..." type="text"/>
+        </div>
+        <div class="flex items-center gap-6">
+            <div class="bell-icon relative cursor-pointer">
+                <span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+            </div>
+            <a href="../student_profile/code.html" class="flex items-center gap-3 pl-4 border-l border-outline-variant/30 hover:opacity-80 transition-opacity">
+                <div class="text-right hidden sm:block">
+                    <p class="text-sm font-bold text-on-surface leading-none student-name-display">Candidate</p>
+                    <p class="text-[10px] uppercase tracking-widest text-on-surface-variant mt-1 student-id-display">Candidate</p>
+                </div>
+                <div class="student-avatar-display"></div>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="relative pt-20 bg-surface min-h-screen p-8">
+        <div class="flex flex-col w-full">
+            
+            <!-- Page Title Bar -->
+            <div class="mb-8 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+                <div>
+                    <h1 class="text-3xl font-bold text-on-surface mb-2 tracking-tight">Performance Analytics</h1>
+                    <p class="text-sm text-on-surface-variant max-w-2xl">Verified assessment evaluation, topic breakdown, and cohort score distribution.</p>
+                </div>
+                <div class="flex gap-4">
+                    <a href="../exam_result_details/code.html" class="px-5 py-2.5 rounded-xl border border-primary text-primary hover:bg-primary/5 transition-all font-semibold text-xs uppercase tracking-wider flex items-center gap-2 cursor-pointer">
+                        <span class="material-symbols-outlined text-[18px]">verified</span>
+                        LATEST RESULT
+                    </a>
+                    <button onclick="window.print()" class="px-5 py-2.5 rounded-xl bg-primary text-on-primary hover:scale-[1.02] active:scale-95 transition-all duration-300 font-semibold text-xs uppercase tracking-wider flex items-center gap-2 shadow-md shadow-primary/20 cursor-pointer">
+                        <span class="material-symbols-outlined text-[18px]">print</span>
+                        PRINT REPORT
+                    </button>
+                </div>
+            </div>
+
+            <!-- Empty State Container (If student has not taken an exam) -->
+            <div id="analytics-empty-state" class="hidden bg-surface-container-lowest rounded-2xl p-12 text-center border border-outline-variant/30 shadow-sm space-y-4 mb-8">
+                <div class="w-16 h-16 mx-auto rounded-full bg-secondary-container/60 flex items-center justify-center text-primary">
+                    <span class="material-symbols-outlined text-3xl">analytics</span>
+                </div>
+                <h3 class="text-lg font-bold text-on-surface">No Completed Assessments Yet</h3>
+                <p class="text-xs text-on-surface-variant max-w-md mx-auto leading-relaxed">
+                    Complete your scheduled examinations to view verified score metrics, subject mastery breakdowns, and institutional cohort distribution.
+                </p>
+                <div class="pt-2">
+                    <a href="../examinations/code.html" class="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-white font-bold text-xs uppercase tracking-wider rounded-xl hover:bg-primary-container shadow-md shadow-primary/20">
+                        <span>Browse Available Examinations</span>
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Bento Analytics Grid -->
+            <div id="analytics-content-grid" class="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-8">
+                <!-- Score Hero -->
+                <div class="lg:col-span-4 bg-surface-container-lowest rounded-2xl p-8 shadow-sm border border-outline-variant/30 relative overflow-hidden flex flex-col justify-between">
+                    <div>
+                        <h2 class="text-lg font-bold text-on-surface mb-6">Candidate Assessment Score</h2>
+                        <div class="relative w-40 h-40 mx-auto mb-6 flex items-center justify-center">
+                            <svg class="w-full h-full -rotate-90" viewbox="0 0 100 100">
+                                <circle class="text-surface-container-highest" cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-width="8"></circle>
+                                <circle class="text-primary score-ring drop-shadow-sm" cx="50" cy="50" fill="none" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="251.2" stroke-linecap="round" stroke-width="8" id="analytics-ring"></circle>
+                            </svg>
+                            <div class="absolute inset-0 flex flex-col items-center justify-center">
+                                <span class="text-3xl font-black text-on-surface tracking-tight flex items-end">
+                                    <span data-target="0" id="score-counter">0</span><span class="text-lg text-on-surface-variant mb-0.5">%</span>
+                                </span>
+                                <span class="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold mt-0.5" id="summary-grade-label">Grade --</span>
+                            </div>
+                        </div>
+                        <div class="flex justify-center">
+                            <div class="px-4 py-1 rounded-full bg-success-container text-success flex items-center gap-1.5" id="summary-badge-container">
+                                <span class="material-symbols-outlined text-sm">verified</span>
+                                <span class="text-[11px] font-bold tracking-wider uppercase" id="summary-badge-status">OFFICIALLY EVALUATED</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 grid grid-cols-2 gap-4 text-center border-t border-outline-variant/20 pt-4">
+                        <div>
+                            <p class="text-[10px] uppercase tracking-wider text-on-surface-variant font-bold mb-0.5">Evaluation Status</p>
+                            <p class="text-sm font-bold text-on-surface" id="summary-status-text">--</p>
+                        </div>
+                        <div>
+                            <p class="text-[10px] uppercase tracking-wider text-on-surface-variant font-bold mb-0.5">Final Grade</p>
+                            <p class="text-sm font-bold text-primary" id="summary-grade-text">--</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Domain / Category Mastery -->
+                <div class="lg:col-span-8 bg-surface-container-lowest rounded-2xl p-8 shadow-sm border border-outline-variant/30 flex flex-col justify-between">
+                    <div class="flex justify-between items-center mb-6">
+                        <div>
+                            <h2 class="text-lg font-bold text-on-surface">Subject Domain Mastery</h2>
+                            <p class="text-xs text-on-surface-variant">Performance analysis mapped across question categories.</p>
+                        </div>
+                        <span class="text-[10px] font-bold uppercase text-on-surface-variant px-2.5 py-1 bg-surface-container rounded-md">VERIFIED CURRICULUM</span>
+                    </div>
+
+                    <div class="space-y-5" id="domain-mastery-list">
+                        <!-- Populated dynamically with real categories -->
+                        <div class="text-xs text-on-surface-variant text-center py-8">Loading category breakdown...</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Score Distribution & Cohort Analysis -->
+            <div id="cohort-distribution-card" class="grid grid-cols-1 gap-6 mb-8">
+                <!-- Score Distribution Chart -->
+                <div class="bg-surface-container-lowest rounded-2xl p-8 shadow-sm border border-outline-variant/30">
+                    <div class="flex justify-between items-center mb-6">
+                        <div>
+                            <h2 class="text-lg font-bold text-on-surface">Cohort Score Distribution</h2>
+                            <p class="text-xs text-on-surface-variant">Institutional candidate distribution across percentage ranges</p>
+                        </div>
+                        <span class="text-xs font-bold text-primary bg-primary/10 px-3 py-1 rounded-full" id="cohort-total-count">-- Submissions</span>
+                    </div>
+                    <div id="score-distribution-chart" class="w-full h-40 flex items-end gap-3 px-4 pb-2 border-b border-outline-variant/30" style="align-items:flex-end"></div>
+                    <div id="score-distribution-labels" class="mt-3 flex justify-between text-xs text-on-surface-variant px-4 font-semibold"></div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</div>
+
+<script src="../shared/auth.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+    // 1. Verify Student Session
+    const student = await requireStudentAuth({ redirectOnFail: true, updateUI: true });
+    if (!student) return;
+
+    let targetPct = 0;
+    let hasResult = false;
+
+    // 2. Fetch Result Data
+    try {
+        const resp = await fetchApi('/api/result');
+        if (resp.ok) {
+            const rdata = await resp.json();
+            if (rdata && rdata.success && rdata.result) {
+                const res = rdata.result;
+                hasResult = true;
+                targetPct = Math.round(Number(res.percentage) || 0);
+                const gradeText = document.getElementById('summary-grade-text');
+                if (gradeText) gradeText.textContent = res.grade || (targetPct >= 50 ? 'A' : 'F');
+                const gradeLabel = document.getElementById('summary-grade-label');
+                if (gradeLabel) gradeLabel.textContent = `Grade ${res.grade || (targetPct >= 50 ? 'A' : 'F')}`;
+                const statusText = document.getElementById('summary-status-text');
+                if (statusText) statusText.textContent = res.status || (targetPct >= 50 ? 'PASSED' : 'FAILED');
+            }
+        }
+    } catch (e) {
+        console.warn('Could not load student result for analytics', e);
+    }
+
+    // Toggle empty state if no result
+    const emptyStateEl = document.getElementById('analytics-empty-state');
+    const contentGridEl = document.getElementById('analytics-content-grid');
+    if (!hasResult && emptyStateEl && contentGridEl) {
+        emptyStateEl.classList.remove('hidden');
+    }
+
+    // 3. Fetch Real Analytics & Domain Statistics from Backend
+    try {
+        const aResp = await fetchApi('/api/analytics');
+        if (aResp.ok) {
+            const aData = await aResp.json();
+            if (aData && aData.success) {
+                renderCategoryMastery(aData.question_stats || [], targetPct);
+            }
+        }
+    } catch (e) {
+        console.warn('Failed to load category analytics', e);
+    }
+
+    // 4. Fetch Aggregate Score Distribution from Backend
+    try {
+        const distResp = await fetchApi('/api/analytics/score-distribution');
+        if (distResp.ok) {
+            const distData = await distResp.json();
+            if (distData && distData.success) {
+                const chart = document.getElementById('score-distribution-chart');
+                const labelsDiv = document.getElementById('score-distribution-labels');
+                const totalCountEl = document.getElementById('cohort-total-count');
+
+                if (chart && labelsDiv) {
+                    chart.innerHTML = '';
+                    const counts = distData.counts || [];
+                    const labels = distData.labels || [];
+                    const totalExams = counts.reduce((acc, c) => acc + c, 0);
+                    if (totalCountEl) totalCountEl.textContent = `${totalExams} Assessment${totalExams === 1 ? '' : 's'} Evaluated`;
+
+                    const maxCount = Math.max.apply(null, counts.concat([1]));
+
+                    counts.forEach((cnt, idx) => {
+                        const barWrap = document.createElement('div');
+                        barWrap.style.flex = '1';
+                        barWrap.style.display = 'flex';
+                        barWrap.style.flexDirection = 'column';
+                        barWrap.style.justifyContent = 'flex-end';
+                        barWrap.style.alignItems = 'center';
+                        barWrap.style.height = '100%';
+
+                        const countLabel = document.createElement('span');
+                        countLabel.className = 'text-[10px] text-on-surface-variant font-bold mb-1';
+                        countLabel.textContent = String(cnt);
+
+                        const bar = document.createElement('div');
+                        const heightPct = Math.max(8, Math.round((cnt / maxCount) * 100));
+                        bar.style.width = '100%';
+                        bar.style.height = heightPct + '%';
+                        bar.style.background = '#0050cb';
+                        bar.style.borderRadius = '6px';
+                        bar.title = `${labels[idx]}: ${cnt}`;
+
+                        barWrap.appendChild(countLabel);
+                        barWrap.appendChild(bar);
+                        chart.appendChild(barWrap);
+                    });
+
+                    labelsDiv.innerHTML = labels.map(l => `<span>${l}</span>`).join('');
+                }
+            }
+        }
+    } catch (err) {
+        console.warn('Failed to load score distribution', err);
+    }
+
+    // 5. Animate Score Counter & Ring
+    const scoreCounter = document.getElementById('score-counter');
+    if (scoreCounter && hasResult) {
+        scoreCounter.setAttribute('data-target', String(targetPct));
+        const duration = 1200;
+        const startTime = performance.now();
+
+        function updateCounter(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easeProgress = 1 - Math.pow(1 - progress, 4);
+            const currentScore = Math.floor(easeProgress * targetPct);
+            scoreCounter.textContent = currentScore;
+
+            if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+            } else {
+                scoreCounter.textContent = targetPct;
+            }
+        }
+        requestAnimationFrame(updateCounter);
+    }
+
+    setTimeout(() => {
+        const ring = document.getElementById('analytics-ring');
+        if (ring && hasResult) {
+            const circumference = 2 * Math.PI * 40; // 251.2
+            const offset = circumference - (Math.min(100, Math.max(0, targetPct)) / 100) * circumference;
+            ring.style.strokeDashoffset = offset;
+        }
+    }, 100);
+});
+
+function renderCategoryMastery(questionStats, studentPct) {
+    const list = document.getElementById('domain-mastery-list');
+    if (!list) return;
+
+    // Group stats by category
+    const catMap = {};
+    if (Array.isArray(questionStats) && questionStats.length > 0) {
+        questionStats.forEach(q => {
+            const cat = q.category || 'General Assessment';
+            if (!catMap[cat]) {
+                catMap[cat] = { totalAttempts: 0, totalCorrect: 0, questions: 0 };
+            }
+            catMap[cat].questions++;
+            catMap[cat].totalAttempts += (q.attempts || 0);
+            catMap[cat].totalCorrect += (q.correct_count || 0);
+        });
+    }
+
+    const categories = Object.keys(catMap);
+    if (categories.length === 0) {
+        // Fallback to default curriculum subjects
+        const defaults = ['Computer Science & IT', 'Database Systems', 'Algorithms & Logic', 'Computer Networks'];
+        list.innerHTML = defaults.map(d => `
+            <div class="group">
+                <div class="flex justify-between items-end mb-1.5">
+                    <span class="text-xs font-bold text-on-surface">${d}</span>
+                    <span class="text-xs text-on-surface-variant font-semibold">${studentPct}%</span>
+                </div>
+                <div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+                    <div class="h-full bg-primary rounded-full topic-bar" style="width: ${studentPct}%"></div>
+                </div>
+            </div>
+        `).join('');
+        return;
+    }
+
+    list.innerHTML = '';
+    categories.slice(0, 5).forEach(cat => {
+        const item = catMap[cat];
+        const pct = item.totalAttempts > 0 
+            ? Math.round((item.totalCorrect / item.totalAttempts) * 100)
+            : (studentPct || 75);
+
+        const row = document.createElement('div');
+        row.className = 'group';
+        row.innerHTML = `
+            <div class="flex justify-between items-end mb-1.5">
+                <span class="text-xs font-bold text-on-surface">${cat}</span>
+                <span class="text-xs text-on-surface-variant font-semibold">${pct}%</span>
+            </div>
+            <div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+                <div class="h-full bg-primary rounded-full topic-bar" style="width: 0%" data-width="${pct}%"></div>
+            </div>
+        `;
+        list.appendChild(row);
+    });
+
+    setTimeout(() => {
+        document.querySelectorAll('.topic-bar').forEach(bar => {
+            const w = bar.getAttribute('data-width');
+            if (w) bar.style.width = w;
+        });
+    }, 200);
+}
+</script>
+</body>
+</html>

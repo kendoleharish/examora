@@ -1,0 +1,11 @@
+ALTER TABLE questions
+ADD COLUMN type VARCHAR(50) DEFAULT 'MCQ',
+ADD COLUMN content JSON,
+ADD COLUMN metadata JSON,
+ADD COLUMN negative_marks INT DEFAULT 0,
+ADD COLUMN difficulty VARCHAR(20) DEFAULT 'Medium',
+ADD COLUMN tags JSON,
+ADD COLUMN created_by INT DEFAULT NULL,
+ADD COLUMN updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP;
+
+-- We will NOT drop optionA, optionB, optionC, optionD, correct_answer yet.

@@ -1,0 +1,144 @@
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}.nav-link:hover .material-symbols-outlined{transform:scale(1.1);transition:transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);}.search-input{transition:width 0.3s cubic-bezier(0.4, 0, 0.2, 1);}.bell-icon:hover{animation:shake 0.5s ease-in-out;}@keyframes shake{0%,100%{transform:rotate(0deg);}25%{transform:rotate(15deg);}75%{transform:rotate(-15deg);}}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={theme:{extend:{"colors":{"on-primary-fixed-variant":"#003fa4","primary-container":"#0066ff","on-secondary":"#ffffff","surface-container-high":"#e6e8ea","inverse-primary":"#b3c5ff","on-surface":"#191c1e","tertiary-fixed-dim":"#bec6e0","surface-container-lowest":"#ffffff","surface-variant":"#e0e3e5","tertiary-container":"#697188","primary":"#0050cb","secondary-fixed-dim":"#b7c8e1","on-background":"#191c1e","on-secondary-container":"#54647a","on-error-container":"#93000a","tertiary":"#51596f","on-tertiary-container":"#f7f7ff","on-error":"#ffffff","secondary":"#505f76","on-primary-fixed":"#001849","secondary-fixed":"#d3e4fe","on-secondary-fixed-variant":"#38485d","inverse-surface":"#2d3133","surface-tint":"#0054d6","surface":"#f7f9fb","on-tertiary-fixed":"#131b2e","background":"#f7f9fb","on-tertiary-fixed-variant":"#3f465c","secondary-container":"#d0e1fb","tertiary-fixed":"#dae2fd","primary-fixed":"#dae1ff","surface-container-low":"#f2f4f6","error-container":"#ffdad6","on-primary":"#ffffff","error":"#ba1a1a","surface-container":"#eceef0","on-primary-container":"#f8f7ff","inverse-on-surface":"#eff1f3","outline":"#727687","surface-dim":"#d8dadc","on-surface-variant":"#424656","outline-variant":"#c2c6d8","surface-bright":"#f7f9fb","on-tertiary":"#ffffff","primary-fixed-dim":"#b3c5ff","on-secondary-fixed":"#0b1c30","surface-container-highest":"#e0e3e5"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"section-margin":"48px","container-padding":"32px","card-gap":"24px","unit":"8px","gutter":"24px"},"fontFamily":{"headline-sm":["Inter"],"label-md":["Geist"],"display-lg":["Inter"],"body-lg":["Inter"],"headline-lg-mobile":["Inter"],"headline-md":["Inter"],"body-md":["Inter"],"body-sm":["Inter"]},"fontSize":{"headline-sm":["20px",{"lineHeight":"28px","fontWeight":"600"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.05em","fontWeight":"600"}],"display-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","fontWeight":"700"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["16px",{"lineHeight":"24px","fontWeight":"400"}],"body-sm":["14px",{"lineHeight":"20px","fontWeight":"400"}]}}}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:wght@100..900&display=swap" rel="stylesheet"/></head><body class="bg-surface font-body-md text-on-surface min-h-screen"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest z-30 flex flex-col border-r border-outline-variant/30 transition-all duration-300"><div class="p-6 flex items-center gap-3"><div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white shadow-sm flex-shrink-0"><svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/><path d="m9 12 2 2 4-4"/></svg></div><span class="font-headline-md text-primary tracking-tight font-bold">EXAMORA</span></div><nav class="flex-1 px-4 space-y-2 mt-4" data-active-classes="bg-primary text-on-primary shadow-lg shadow-primary/20"><a class="nav-link flex items-center px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="dashboard" href="../student_dashboard/code.html"><span class="material-symbols-outlined mr-4 transition-transform">dashboard</span><span class="font-label-md">Dashboard</span></a><a class="nav-link flex items-center px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="examinations" href="../examinations/code.html"><span class="material-symbols-outlined mr-4 transition-transform">quiz</span><span class="font-label-md">Examinations</span></a><a class="nav-link flex items-center px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="results-analytics" href="../exam_results_analytics/code.html"><span class="material-symbols-outlined mr-4 transition-transform">analytics</span><span class="font-label-md">Results & Analytics</span></a><a class="nav-link flex items-center px-4 py-3 rounded-xl text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all group" data-path="student-profile" href="../student_profile/code.html"><span class="material-symbols-outlined mr-4 transition-transform">person</span><span class="font-label-md">Profile</span></a></nav><div class="px-4 py-8 border-t border-outline-variant/20"><a class="flex items-center px-4 py-3 rounded-xl text-error hover:bg-error-container hover:text-on-error-container transition-all group cursor-pointer" data-action="logout" href="#"><span class="material-symbols-outlined mr-4">logout</span><span class="font-label-md">Logout</span></a></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface/80 backdrop-blur-xl z-20 border-b border-outline-variant/30 flex items-center justify-between px-container-padding"><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-3 text-on-surface-variant">search</span><input class="search-input bg-surface-container-high/50 border-none rounded-full py-2 pl-10 pr-4 text-body-sm w-64 focus:w-80 focus:ring-2 focus:ring-primary/20 outline-none" id="headerSearchInput" placeholder="Search students..." type="text"/></div><div class="flex items-center gap-6"><div class="bell-icon relative cursor-pointer"><span class="material-symbols-outlined text-on-surface-variant">notifications</span><span class="absolute top-0 right-0 w-2 h-2 bg-primary rounded-full border-2 border-surface"></span></div><a href="../student_profile/code.html" class="flex items-center gap-3 pl-4 border-l border-outline-variant/30 hover:opacity-80 transition-opacity"><div class="text-right hidden sm:block"><p class="text-body-sm font-bold text-on-surface leading-none student-name-display">Student</p><p class="text-[10px] uppercase tracking-widest text-on-surface-variant mt-1 student-id-display">Student</p></div><div class="student-avatar-display"></div></a></div></header><main class="relative pt-16 bg-surface min-h-screen p-container-padding"><div class="flex flex-col w-full gap-section-margin pb-12">
+<!-- Header Section -->
+<div class="relative w-full rounded-2xl bg-secondary-container p-container-padding flex flex-col justify-between overflow-hidden shadow-sm" style="min-height: 200px;">
+<div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+<div>
+<h1 class="font-display-lg text-display-lg text-on-secondary-container mb-2">Student Directory</h1>
+<p class="font-body-lg text-body-lg text-on-secondary-container/80 max-w-xl">
+          Directory of registered student accounts in the EXAMORA Examination System.
+        </p>
+</div>
+<div class="flex items-center gap-3 bg-surface-container-lowest/80 backdrop-blur-md px-4 py-2 rounded-xl shadow-sm border border-outline-variant/30">
+<span class="material-symbols-outlined text-primary">group</span>
+<span class="font-label-md text-on-surface" id="student-count-badge">Loading...</span>
+</div>
+</div>
+</div>
+<!-- Search & Filter Bar -->
+<div class="flex flex-col md:flex-row items-center justify-between gap-4 bg-surface-container-lowest p-4 rounded-2xl shadow-sm border border-outline-variant/20">
+<div class="relative w-full md:w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-10 pr-4 py-2.5 bg-surface-container-low rounded-xl border-none text-body-md focus:ring-2 focus:ring-primary outline-none transition-all" id="searchInput" placeholder="Search by name or email..." type="text"/>
+</div>
+<div class="flex items-center gap-3 w-full md:w-auto">
+<button class="flex items-center gap-2 px-4 py-2.5 bg-surface-container-low rounded-xl text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-md">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+<span>Filter</span>
+</button>
+</div>
+</div>
+<!-- Student List Container -->
+<div class="flex flex-col gap-3" id="studentList">
+<!-- Dynamically populated rows from /api/students -->
+</div>
+<!-- Empty State -->
+<div class="hidden flex-col items-center justify-center p-12 text-center bg-surface-container-lowest rounded-2xl border border-outline-variant/20" id="emptyState">
+<span class="material-symbols-outlined text-6xl text-outline-variant mb-4">person_search</span>
+<h3 class="font-headline-sm text-on-surface mb-1">No students found</h3>
+<p class="font-body-md text-on-surface-variant">Try adjusting your search criteria</p>
+</div>
+</div>
+<script src="../shared/auth.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', async () => {
+    const student = await requireStudentAuth({ redirectOnFail: true, updateUI: true });
+    if (!student) return;
+
+    loadStudents();
+
+    const searchInput = document.getElementById('searchInput');
+    const headerSearchInput = document.getElementById('headerSearchInput');
+
+    if (searchInput) searchInput.addEventListener('input', filterStudents);
+    if (headerSearchInput) {
+      headerSearchInput.addEventListener('input', (e) => {
+        if (searchInput) {
+          searchInput.value = e.target.value;
+          filterStudents();
+        }
+      });
+    }
+  });
+
+  async function loadStudents() {
+    const list = document.getElementById('studentList');
+    const badge = document.getElementById('student-count-badge');
+    try {
+      const resp = await fetchApi('/api/students');
+      if (resp.ok) {
+        const data = await resp.json();
+        if (data && data.success && Array.isArray(data.students)) {
+          renderStudents(data.students);
+          if (badge) badge.textContent = `${data.students.length} Student${data.students.length === 1 ? '' : 's'}`;
+          return;
+        }
+      }
+    } catch (e) {
+      console.warn('Failed to load students:', e);
+    }
+    if (badge) badge.textContent = 'Directory unavailable';
+  }
+
+  function renderStudents(students) {
+    const list = document.getElementById('studentList');
+    list.innerHTML = '';
+
+    students.forEach((s) => {
+      const row = document.createElement('div');
+      row.className = 'student-row group bg-surface-container-lowest hover:bg-surface-bright rounded-xl p-4 shadow-sm border border-outline-variant/20 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 transition-all duration-200';
+      
+      row.innerHTML = `
+        <div class="flex items-center gap-4 w-full md:w-auto">
+          ${getStudentAvatarHtml(s.profile_picture || null, 44)}
+          <div>
+            <h3 class="student-name font-headline-sm text-base text-on-surface">${s.student_name || s.username}</h3>
+            <p class="student-email font-body-sm text-xs text-on-surface-variant">Username: @${s.username} • ID: #${s.student_id}</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="px-3 py-1 bg-surface-container-high rounded-full text-xs font-semibold text-on-surface-variant">Active</span>
+        </div>
+      `;
+      list.appendChild(row);
+    });
+
+    checkEmptyState();
+  }
+
+  function filterStudents() {
+    const input = document.getElementById('searchInput');
+    const filter = input.value.toLowerCase();
+    const rows = document.querySelectorAll('.student-row');
+    let hasVisible = false;
+
+    rows.forEach(row => {
+      const name = row.querySelector('.student-name').innerText.toLowerCase();
+      const email = row.querySelector('.student-email').innerText.toLowerCase();
+      if (name.includes(filter) || email.includes(filter)) {
+        row.style.display = '';
+        hasVisible = true;
+      } else {
+        row.style.display = 'none';
+      }
+    });
+
+    checkEmptyState(hasVisible);
+  }
+
+  function checkEmptyState(hasVisible = null) {
+    const emptyState = document.getElementById('emptyState');
+    if (hasVisible === null) {
+      const rows = document.querySelectorAll('.student-row');
+      hasVisible = Array.from(rows).some(r => r.style.display !== 'none');
+    }
+    if (!hasVisible) {
+      emptyState.classList.remove('hidden');
+      emptyState.classList.add('flex');
+    } else {
+      emptyState.classList.add('hidden');
+      emptyState.classList.remove('flex');
+    }
+  }
+</script></main></div></body></html>

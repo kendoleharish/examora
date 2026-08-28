@@ -1,0 +1,2 @@
+-- Compatibility migration for password hash storage.
+-- This is also ensured by migrate.py to avoid MySQL-version-specific syntax issues.

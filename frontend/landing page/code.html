@@ -1,0 +1,420 @@
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}header{transition:background-color 0.3s, backdrop-filter 0.3s;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "outline-variant": "#c3c6d6",
+                "on-tertiary-fixed-variant": "#832700",
+                "warning": "#fbbf24",
+                "on-tertiary-fixed": "#390c00",
+                "outline": "#737685",
+                "surface-container": "#ededf8",
+                "on-tertiary": "#ffffff",
+                "primary-fixed": "#dae1ff",
+                "dark-surface": "#11151d",
+                "on-background": "#191b23",
+                "tertiary-container": "#a23302",
+                "dark-accent": "#4f8cff",
+                "primary-fixed-dim": "#b3c5ff",
+                "on-secondary-container": "#616473",
+                "dark-bg": "#0b0e14",
+                "surface-container-low": "#f3f3fd",
+                "dark-surface-elevated": "#171c26",
+                "primary-container": "#0050cb",
+                "tertiary-fixed-dim": "#ffb59c",
+                "surface-container-highest": "#e1e2ec",
+                "on-secondary": "#ffffff",
+                "surface-container-lowest": "#ffffff",
+                "on-error-container": "#93000a",
+                "on-surface": "#191b23",
+                "inverse-surface": "#2e3038",
+                "on-tertiary-container": "#ffc3b0",
+                "on-secondary-fixed": "#181b27",
+                "light-bg": "#faf8ff",
+                "secondary-container": "#e0e1f3",
+                "background": "#faf8ff",
+                "on-primary-container": "#c1cfff",
+                "inverse-on-surface": "#f0f0fb",
+                "success": "#34d399",
+                "tertiary": "#7b2400",
+                "on-primary-fixed-variant": "#003fa4",
+                "secondary": "#5b5e6c",
+                "secondary-fixed": "#e0e1f3",
+                "on-error": "#ffffff",
+                "surface-tint": "#1155d0",
+                "on-surface-variant": "#434654",
+                "error-container": "#ffdad6",
+                "light-surface": "#ffffff",
+                "inverse-primary": "#b3c5ff",
+                "surface-variant": "#e1e2ec",
+                "on-secondary-fixed-variant": "#434654",
+                "surface": "#faf8ff",
+                "surface-bright": "#faf8ff",
+                "dark-border": "#2a3140",
+                "primary": "#003b9a",
+                "surface-container-high": "#e7e7f2",
+                "tertiary-fixed": "#ffdbd0",
+                "error": "#f87171",
+                "light-border": "#e2e8f0",
+                "surface-dim": "#d9d9e4",
+                "on-primary-fixed": "#001849",
+                "on-primary": "#ffffff",
+                "secondary-fixed-dim": "#c3c5d7"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "max-width": "1280px",
+                "gutter": "24px",
+                "sm": "8px",
+                "margin-mobile": "16px",
+                "2xl": "48px",
+                "xl": "32px",
+                "lg": "24px",
+                "md": "16px",
+                "unit": "8px",
+                "margin-desktop": "40px",
+                "xs": "4px"
+        },
+        "fontFamily": {
+                "mono-technical": [
+                        "Courier Prime"
+                ],
+                "caption": [
+                        "Inter"
+                ],
+                "body-md": [
+                        "Inter"
+                ],
+                "label-md": [
+                        "Inter"
+                ],
+                "headline-md": [
+                        "Inter"
+                ],
+                "body-lg": [
+                        "Inter"
+                ],
+                "display-lg": [
+                        "Inter"
+                ],
+                "headline-lg-mobile": [
+                        "Inter"
+                ],
+                "title-lg": [
+                        "Inter"
+                ],
+                "headline-lg": [
+                        "Inter"
+                ]
+        },
+        "fontSize": {
+                "mono-technical": [
+                        "13px",
+                        {
+                                "lineHeight": "16px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "caption": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-md": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "58px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "title-lg": [
+                        "20px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<script>
+    // Theme logic
+    (function() {
+      const getTheme = () => {
+        const storedTheme = localStorage.getItem('examora-theme');
+        if (storedTheme) {
+          return storedTheme;
+        }
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      };
+      const setTheme = (theme) => {
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else if (theme === 'light') {
+          document.documentElement.classList.remove('dark');
+        } else {
+          // system
+          if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        }
+      };
+      setTheme(getTheme());
+      
+      window.setExamoraTheme = (theme) => {
+        localStorage.setItem('examora-theme', theme);
+        setTheme(theme);
+        updateThemeUI(theme);
+      };
+
+      function updateThemeUI(theme) {
+          document.querySelectorAll('.theme-btn').forEach(btn => btn.classList.remove('bg-surface-container-high', 'text-primary'));
+          document.querySelectorAll('.theme-btn').forEach(btn => btn.classList.add('text-on-surface-variant'));
+          const activeBtn = document.getElementById(`theme-${theme}`);
+          if(activeBtn) {
+              activeBtn.classList.add('bg-surface-container-high', 'text-primary');
+              activeBtn.classList.remove('text-on-surface-variant');
+          }
+      }
+
+      window.addEventListener('DOMContentLoaded', () => {
+          updateThemeUI(localStorage.getItem('examora-theme') || 'system');
+      });
+    })();
+  </script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/></head><body class="bg-surface font-body-md text-body-md text-on-surface transition-colors duration-300 dark:bg-dark-bg dark:text-light-surface"><header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-dark-surface/80 backdrop-blur-xl border-b border-outline-variant dark:border-dark-border transition-colors duration-300"><div class="h-20 max-w-max-width mx-auto px-margin-desktop flex items-center justify-between"><div class="flex items-center gap-sm"><div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-on-primary"><span class="material-symbols-outlined">school</span></div><div class="flex flex-col"><span class="font-headline-md text-[20px] leading-tight text-primary uppercase tracking-wider font-bold">EXAMORA</span><span class="font-caption text-[10px] text-on-surface-variant dark:text-secondary-fixed-dim uppercase tracking-widest font-medium">Online Examination Portal</span></div></div><nav class="hidden lg:flex items-center gap-xl"><a aria-current="page" class="transition-colors text-primary font-semibold text-label-md" data-path="home" href="#">Home</a><a class="text-label-md font-label-md text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary transition-colors" data-path="examinations" href="../examinations/code.html">Examinations</a><a class="text-label-md font-label-md text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary transition-colors" data-path="how-it-works" href="#how-it-works">How It Works</a><a class="text-label-md font-label-md text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary transition-colors" data-path="security" href="#security">Security</a><a class="text-label-md font-label-md text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary transition-colors" data-path="about" href="#features">About</a></nav><div class="flex items-center gap-md"><div class="hidden md:flex items-center bg-surface-container dark:bg-dark-surface-elevated rounded-full p-xs gap-xs border border-outline-variant/30 dark:border-dark-border"><button class="theme-btn w-8 h-8 rounded-full flex items-center justify-center hover:bg-surface-container-high dark:hover:bg-inverse-surface transition-colors text-on-surface-variant dark:text-secondary-fixed-dim" id="theme-light" onclick="setExamoraTheme('light')" title="Light Mode"><span class="material-symbols-outlined text-[18px]">light_mode</span></button><button class="theme-btn w-8 h-8 rounded-full flex items-center justify-center hover:bg-surface-container-high dark:hover:bg-inverse-surface transition-colors text-on-surface-variant dark:text-secondary-fixed-dim" id="theme-system" onclick="setExamoraTheme('system')" title="System Mode"><span class="material-symbols-outlined text-[18px]">contrast</span></button><button class="theme-btn w-8 h-8 rounded-full flex items-center justify-center hover:bg-surface-container-high dark:hover:bg-inverse-surface transition-colors text-on-surface-variant dark:text-secondary-fixed-dim" id="theme-dark" onclick="setExamoraTheme('dark')" title="Dark Mode"><span class="material-symbols-outlined text-[18px]">dark_mode</span></button></div><a class="hidden sm:flex px-md py-sm border border-outline dark:border-outline-variant text-label-md font-label-md text-primary dark:text-primary-fixed-dim rounded-lg hover:bg-surface-container-low dark:hover:bg-dark-surface-elevated transition-all" data-path="admin-portal" href="../admin_login/code.html">Administrator Portal</a><a class="px-md py-sm bg-primary text-on-primary text-label-md font-label-md rounded-lg shadow-[0_4px_12px_rgba(0,80,203,0.3)] hover:brightness-110 transition-all" data-path="student-sign-in" href="../student_login/code.html">Student Sign In</a></div></div></header><main class="w-full pt-20 bg-surface dark:bg-dark-bg transition-colors duration-300"><div @scroll.window="scrolled = (window.pageYOffset &gt; 50)" class="flex flex-col w-full relative overflow-hidden" x-data="{ scrolled: false }">
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center justify-center pt-2xl pb-2xl px-margin-mobile md:px-margin-desktop max-w-max-width mx-auto w-full group">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-2xl items-center relative z-10 w-full">
+<!-- Hero Content -->
+<div class="lg:col-span-6 flex flex-col gap-lg animate-fade-in-up" style="animation-delay: 100ms;">
+<div class="inline-flex items-center gap-sm bg-surface-container dark:bg-dark-surface-elevated px-sm py-xs rounded-full self-start text-caption font-caption text-primary dark:text-primary-fixed-dim border border-primary/10">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary dark:bg-primary-fixed-dim opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary dark:bg-primary-fixed-dim"></span>
+</span>
+                    PLATFORM STATUS: OPERATIONAL
+                </div>
+<h1 class="font-display-lg text-display-lg text-on-surface dark:text-light-surface tracking-tight text-balance">
+                    Secure Digital Examinations, <span class="text-primary dark:text-dark-accent block mt-xs">Built for Academic Integrity.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant dark:text-secondary-fixed-dim max-w-xl text-balance">
+                    EXAMORA provides a secure, server-authoritative platform for conducting examinations, managing candidates, evaluating assessments, and delivering verified academic results.
+                </p>
+<div class="flex flex-col sm:flex-row gap-md pt-sm">
+<a class="inline-flex items-center justify-center gap-sm px-xl py-md bg-primary text-on-primary rounded-xl font-label-md text-label-md shadow-lg shadow-primary/30 hover:shadow-xl hover:shadow-primary/40 hover:-translate-y-0.5 transition-all duration-300" data-path="student-sign-in" href="../student_login/code.html">
+                        Student Sign In
+                        <span class="material-symbols-outlined text-[18px]">login</span>
+</a>
+<a class="inline-flex items-center justify-center gap-sm px-xl py-md bg-surface-container dark:bg-dark-surface-elevated border border-outline-variant/30 dark:border-dark-border rounded-xl font-label-md text-label-md text-on-surface dark:text-light-surface hover:bg-surface-container-high dark:hover:bg-inverse-surface hover:-translate-y-0.5 transition-all duration-300 group-hover/btn:text-primary" data-path="admin-portal" href="../admin_login/code.html">
+                        Administrator Portal
+                        <span class="material-symbols-outlined text-[18px]">admin_panel_settings</span>
+</a>
+</div>
+<div class="flex flex-col sm:flex-row gap-lg pt-xl border-t border-outline-variant/30 dark:border-dark-border mt-sm">
+<div class="flex items-center gap-sm text-caption font-caption text-on-surface-variant dark:text-secondary-fixed-dim">
+<span class="material-symbols-outlined text-success text-[16px]">check_circle</span>
+                        Server-authoritative timing
+                    </div>
+<div class="flex items-center gap-sm text-caption font-caption text-on-surface-variant dark:text-secondary-fixed-dim">
+<span class="material-symbols-outlined text-success text-[16px]">check_circle</span>
+                        Secure evaluation
+                    </div>
+<div class="flex items-center gap-sm text-caption font-caption text-on-surface-variant dark:text-secondary-fixed-dim">
+<span class="material-symbols-outlined text-success text-[16px]">check_circle</span>
+                        Verified results
+                    </div>
+</div>
+</div>
+<!-- Hero Visual (Live Exam Card) -->
+<div class="lg:col-span-6 relative perspective-1000 hidden lg:block animate-fade-in-up" style="animation-delay: 300ms;">
+<div class="relative w-full max-w-[520px] ml-auto aspect-[4/3] transform-gpu rotate-y-[-5deg] rotate-x-[5deg] hover:rotate-y-0 hover:rotate-x-0 transition-transform duration-700 ease-out z-20 animate-float">
+<!-- Decorative blur -->
+<div class="absolute -inset-4 bg-primary/20 dark:bg-primary/40 blur-3xl rounded-[32px] mix-blend-multiply dark:mix-blend-screen opacity-50 dark:opacity-20"></div>
+<!-- The Card -->
+<div class="absolute inset-0 bg-surface dark:bg-dark-surface rounded-2xl shadow-2xl overflow-hidden flex flex-col border border-outline-variant/20 dark:border-dark-border backdrop-blur-md bg-surface/90 dark:bg-dark-surface/90">
+<!-- Card Header -->
+<div class="flex items-center justify-between px-lg py-md bg-surface-container-lowest dark:bg-dark-surface-elevated border-b border-outline-variant/20 dark:border-dark-border">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-lg bg-primary-container dark:bg-primary text-on-primary-container dark:text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">terminal</span>
+</div>
+<div>
+<h3 class="font-label-md text-label-md text-on-surface dark:text-light-surface">CS-101: Data Structures</h3>
+<p class="font-caption text-caption text-on-surface-variant dark:text-secondary-fixed-dim">Midterm Examination</p>
+</div>
+</div>
+<div class="flex items-center gap-sm bg-error-container/30 dark:bg-error-container/10 text-error dark:text-error px-sm py-xs rounded-full font-mono-technical text-mono-technical border border-error/20">
+<span class="material-symbols-outlined text-[14px] animate-pulse">timer</span>
+                                01:24:59
+                            </div>
+</div>
+<!-- Card Body (Question) -->
+<div class="p-lg flex-1 flex flex-col gap-md relative overflow-hidden bg-surface dark:bg-dark-surface">
+<!-- Code snippet background accent -->
+<svg class="absolute top-0 right-0 w-64 h-64 text-outline-variant/10 dark:text-dark-border -mr-16 -mt-16 pointer-events-none" fill="currentColor" viewbox="0 0 24 24">
+<path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path>
+</svg>
+<div class="flex justify-between items-end">
+<span class="font-label-md text-label-md text-primary dark:text-primary-fixed-dim uppercase tracking-widest">Question 1 of 10</span>
+<span class="font-caption text-caption text-on-surface-variant dark:text-secondary-fixed-dim">2.5 Points</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface dark:text-light-surface leading-relaxed">
+                                What is the time complexity of searching for an element in a perfectly balanced binary search tree with <code class="font-mono-technical text-primary dark:text-primary-fixed-dim bg-surface-container dark:bg-dark-surface-elevated px-1 py-0.5 rounded">n</code> nodes?
+                            </p>
+<!-- Options -->
+<div class="flex flex-col gap-sm mt-sm z-10">
+<div class="p-md rounded-xl border border-outline-variant/30 dark:border-dark-border flex items-center gap-md hover:bg-surface-container dark:hover:bg-dark-surface-elevated transition-colors cursor-pointer group bg-surface dark:bg-dark-surface">
+<div class="w-5 h-5 rounded-full border-2 border-outline-variant dark:border-outline group-hover:border-primary dark:group-hover:border-primary-fixed-dim transition-colors"></div>
+<span class="font-mono-technical text-mono-technical text-on-surface-variant dark:text-secondary-fixed-dim group-hover:text-on-surface dark:group-hover:text-light-surface">O(1)</span>
+</div>
+<div class="p-md rounded-xl border-2 border-primary dark:border-dark-accent bg-primary/5 dark:bg-dark-accent/10 flex items-center gap-md relative overflow-hidden cursor-pointer">
+<div class="absolute inset-0 bg-primary/10 dark:bg-dark-accent/20 w-full h-full origin-left animate-slide-right"></div>
+<div class="w-5 h-5 rounded-full border-2 border-primary dark:border-dark-accent bg-primary dark:bg-dark-accent flex items-center justify-center text-on-primary z-10">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</div>
+<span class="font-mono-technical text-mono-technical text-on-surface dark:text-light-surface font-semibold z-10">O(log n)</span>
+</div>
+<div class="p-md rounded-xl border border-outline-variant/30 dark:border-dark-border flex items-center gap-md hover:bg-surface-container dark:hover:bg-dark-surface-elevated transition-colors cursor-pointer group bg-surface dark:bg-dark-surface">
+<div class="w-5 h-5 rounded-full border-2 border-outline-variant dark:border-outline group-hover:border-primary dark:group-hover:border-primary-fixed-dim transition-colors"></div>
+<span class="font-mono-technical text-mono-technical text-on-surface-variant dark:text-secondary-fixed-dim group-hover:text-on-surface dark:group-hover:text-light-surface">O(n)</span>
+</div>
+</div>
+</div>
+<!-- Card Footer -->
+<div class="p-md bg-surface-container-low dark:bg-dark-surface-elevated flex justify-between items-center border-t border-outline-variant/20 dark:border-dark-border">
+<button class="px-md py-sm rounded-lg text-label-md font-label-md text-on-surface-variant dark:text-secondary-fixed-dim hover:bg-surface-container dark:hover:bg-inverse-surface transition-colors flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">flag</span> Flag
+                            </button>
+<button class="px-md py-sm rounded-lg bg-primary dark:bg-primary text-on-primary text-label-md font-label-md shadow-sm hover:brightness-110 transition-all flex items-center gap-xs">
+                                Next <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTIONS: How It Works, Security, Features, Explore, Final CTA would go here -->
+<!-- Placeholder for structural content requested -->
+<section class="py-2xl bg-surface-container-low dark:bg-dark-bg border-y border-outline-variant/20 dark:border-dark-border" id="how-it-works">
+<div class="max-w-max-width mx-auto px-margin-desktop text-center">
+<h2 class="font-headline-lg text-headline-lg text-on-surface dark:text-light-surface mb-lg">How It Works</h2>
+<p class="font-body-lg text-on-surface-variant dark:text-secondary-fixed-dim max-w-2xl mx-auto mb-2xl">A streamlined, secure process from creation to evaluation.</p>
+<!-- 4 steps grid -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-lg text-left">
+<div class="p-lg bg-surface dark:bg-dark-surface rounded-2xl border border-outline-variant/30 dark:border-dark-border">
+<div class="w-12 h-12 bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-fixed-dim rounded-xl flex items-center justify-center mb-md font-mono-technical font-bold text-lg">01</div>
+<h3 class="font-title-lg text-on-surface dark:text-light-surface mb-sm">Create &amp; Schedule</h3>
+<p class="font-body-md text-on-surface-variant dark:text-secondary-fixed-dim">Define examination parameters, import question banks, and schedule sessions with precise timing controls.</p>
+</div>
+<div class="p-lg bg-surface dark:bg-dark-surface rounded-2xl border border-outline-variant/30 dark:border-dark-border">
+<div class="w-12 h-12 bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-fixed-dim rounded-xl flex items-center justify-center mb-md font-mono-technical font-bold text-lg">02</div>
+<h3 class="font-title-lg text-on-surface dark:text-light-surface mb-sm">Candidate Access</h3>
+<p class="font-body-md text-on-surface-variant dark:text-secondary-fixed-dim">Securely distribute credentials and authenticate candidates through the dedicated portal before commencement.</p>
+</div>
+<div class="p-lg bg-surface dark:bg-dark-surface rounded-2xl border border-outline-variant/30 dark:border-dark-border">
+<div class="w-12 h-12 bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-fixed-dim rounded-xl flex items-center justify-center mb-md font-mono-technical font-bold text-lg">03</div>
+<h3 class="font-title-lg text-on-surface dark:text-light-surface mb-sm">Secure Evaluation</h3>
+<p class="font-body-md text-on-surface-variant dark:text-secondary-fixed-dim">Conduct the exam in a locked-down environment with server-side validation of all candidate inputs and timing.</p>
+</div>
+<div class="p-lg bg-surface dark:bg-dark-surface rounded-2xl border border-outline-variant/30 dark:border-dark-border">
+<div class="w-12 h-12 bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-fixed-dim rounded-xl flex items-center justify-center mb-md font-mono-technical font-bold text-lg">04</div>
+<h3 class="font-title-lg text-on-surface dark:text-light-surface mb-sm">Verified Results</h3>
+<p class="font-body-md text-on-surface-variant dark:text-secondary-fixed-dim">Automatically compute scores, generate detailed analytics, and publish cryptographically verified results.</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<style>
+@keyframes fade-in-up {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: no-preference) {
+    .animate-fade-in-up {
+        animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        opacity: 0;
+    }
+}
+@keyframes slide-right {
+    0% { transform: scaleX(0); }
+    100% { transform: scaleX(1); }
+}
+.animate-slide-right {
+    animation: slide-right 1s ease-out forwards;
+}
+@keyframes float {
+    0% { transform: translateY(0px) rotate-y(-5deg) rotate-x(5deg); }
+    50% { transform: translateY(-15px) rotate-y(-2deg) rotate-x(3deg); }
+    100% { transform: translateY(0px) rotate-y(-5deg) rotate-x(5deg); }
+}
+@media (prefers-reduced-motion: no-preference) {
+    .animate-float {
+        animation: float 6s ease-in-out infinite;
+    }
+}
+.perspective-1000 {
+    perspective: 1000px;
+}
+</style></main><footer class="w-full bg-surface-container-lowest dark:bg-dark-surface-elevated border-t border-outline-variant dark:border-dark-border pt-2xl pb-xl transition-colors duration-300"><div class="max-w-max-width mx-auto px-margin-desktop"><div class="grid grid-cols-1 md:grid-cols-4 gap-xl mb-xl"><div class="col-span-1 md:col-span-1"><div class="flex items-center gap-xs mb-md"><div class="w-8 h-8 bg-primary rounded flex items-center justify-center text-on-primary"><span class="material-symbols-outlined text-[20px]">school</span></div><span class="font-headline-md text-headline-md text-primary font-bold">EXAMORA</span></div><p class="text-caption font-caption text-on-surface-variant dark:text-secondary-fixed-dim">The Secure Standard for Institutional Assessment.</p></div><div class="flex flex-col gap-sm"><span class="text-label-md font-label-md text-on-surface dark:text-light-surface uppercase tracking-wider">Platform</span><a class="text-caption font-caption text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary transition-colors" href="../examinations/code.html">Examinations</a><a class="text-caption font-caption text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary transition-colors" href="#security">Security</a><a class="text-caption font-caption text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary transition-colors" href="#">Integrations</a></div><div class="flex flex-col gap-sm"><span class="text-label-md font-label-md text-on-surface dark:text-light-surface uppercase tracking-wider">Institution</span><a class="text-caption font-caption text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary transition-colors" href="#">About Examora</a><a class="text-caption font-caption text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary transition-colors" href="#">Compliance</a><a class="text-caption font-caption text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary transition-colors" href="#">Privacy Policy</a></div><div class="flex flex-col gap-sm"><span class="text-label-md font-label-md text-on-surface dark:text-light-surface uppercase tracking-wider">Support</span><a class="text-caption font-caption text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary transition-colors" href="#">Help Center</a><a class="text-caption font-caption text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary transition-colors" href="#">Contact Support</a><a class="text-caption font-caption text-on-surface-variant dark:text-secondary-fixed-dim hover:text-primary transition-colors" href="#">System Status</a></div></div><div class="border-t border-outline-variant dark:border-dark-border pt-md flex items-center justify-between text-caption font-caption text-on-surface-variant dark:text-secondary-fixed-dim"><p>© 2026 Examora Institutional Examination Portal. All rights reserved.</p><div class="flex gap-md"><span class="material-symbols-outlined text-[16px]">language</span><span>English (US)</span></div></div></div></footer></body></html>

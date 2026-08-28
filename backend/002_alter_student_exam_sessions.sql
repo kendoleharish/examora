@@ -1,0 +1,2 @@
+-- Compatibility migration: status and submitted_at are ensured by migrate.py.
+-- This file intentionally does not alter the schema directly to avoid MySQL version syntax issues.
